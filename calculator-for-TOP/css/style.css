@@ -1,0 +1,44 @@
+.calcborder {
+    border: 3px solid salmon;
+    border-radius: 10px;
+    height: 220px;
+    width: 290px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.digits-and-operators {
+    border: 3px solid transparent;
+    border-radius: 10px;
+    width: 190px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+    "top top top"
+    "mid mid mid"
+    "bot bot bot"
+    "zero no eql";
+    gap: 0.5rem;
+    margin-left: -60px;
+}
+
+.digit {
+    border: 3px solid salmon;
+    border-radius: 10px;
+    height: 35px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.digit:active {
+    background-color: salmon;
+    color: white;
+}
+
+.digit:hover {
+    cursor: pointer;
+}
