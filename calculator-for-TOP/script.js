@@ -15,11 +15,16 @@ let operator = '',
     plusSign = document.querySelector('.plus'),
     minusSign = document.querySelector('.minus'),
     multiplySign = document.querySelector('.multiply'),
-    divideSign = document.querySelector('divide'),
+    divideSign = document.querySelector('.divide'),
     clearAllButton = document.querySelector('.clearall'),
-    clearEntryButton = document.querySelector('.clearentry');
+    clearEntryButton = document.querySelector('.clearentry'),
+    inputValue = inputField.textContent,
+    multyplyImage = ' \u00D7 ',
+    minusImage = ' \u2212 ',
+    divideImage = ' \u00F7 ';
 
-    inputField == 0;
+
+    
 
     button0.addEventListener('click', () => {
         inputField.textContent += 0;
@@ -62,8 +67,29 @@ let operator = '',
     });
 
     plusSign.addEventListener('click', () => {
+        inputField.textContent += '+';
+    });
+
+    minusSign.addEventListener('click', () => {
+        inputField.textContent += minusImage;
+    });
+
+    multiplySign.addEventListener('click', () => {
+        inputField.textContent += multyplyImage;
         
-        alert(inputField.value);
+    });
+
+    divideSign.addEventListener('click', () => {
+        inputField.textContent += divideImage;
+    });
+
+    clearEntryButton.addEventListener('click', () => {
+        let newValue = inputField.textContent.slice(0, -1);
+        inputField.textContent = newValue;
+    });
+
+    clearAllButton.addEventListener('click', () => {
+        inputField.textContent = '';
     });
 
 function toCalculate(num1, operator, num2) {
@@ -82,19 +108,3 @@ function toCalculate(num1, operator, num2) {
             break;                  
     }
 };
-
-function toAdd(num1, num2) {
-    return num1 + num2;
-}
-
-function toSubtract(num1, num2) {
-    return num1 - num2;
-}
-
-function toMultiply(num1, num2) {
-    return num1 * num2; 
-}
-
-function toDivide(num1, num2) {
-    return num1 / num2;
-}
