@@ -67,7 +67,7 @@ let operator = '',
     });
 
     plusSign.addEventListener('click', () => {
-        inputField.textContent += '+';
+        inputField.textContent += ' + ';
     });
 
     minusSign.addEventListener('click', () => {
@@ -84,7 +84,16 @@ let operator = '',
     });
 
     clearEntryButton.addEventListener('click', () => {
-        let newValue = inputField.textContent.slice(0, -1);
+
+        let newValue = '';
+        
+        
+        if(inputField.textContent.charAt(inputField.textContent.length - 1) == ' ') {
+            newValue = inputField.textContent.slice(0, -3);
+        } else {
+            newValue = inputField.textContent.slice(0, -1);
+        }
+
         inputField.textContent = newValue;
     });
 
