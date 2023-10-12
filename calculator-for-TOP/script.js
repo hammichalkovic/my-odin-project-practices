@@ -1,5 +1,4 @@
-let operator = '',
-    inputField = document.querySelector('.display'),
+let inputField = document.querySelector('.display'),
     button1 = document.querySelector('.one'),
     button2 = document.querySelector('.two'),
     button3 = document.querySelector('.three'),
@@ -18,7 +17,6 @@ let operator = '',
     divideSign = document.querySelector('.divide'),
     clearAllButton = document.querySelector('.clearall'),
     clearEntryButton = document.querySelector('.clearentry'),
-    inputValue = inputField.textContent,
     multyplyImage = ' \u00D7 ',
     minusImage = ' \u2212 ',
     divideImage = ' \u00F7 ';
@@ -101,19 +99,54 @@ let operator = '',
         inputField.textContent = '';
     });
 
-function toCalculate(num1, operator, num2) {
-    switch (operator) {
-        case '+':
-            return num1 + num2;
-            break;
-        case '-':
-            return num1 - num2;
-            break;
-        case '*':  
-            return num1 * num2; 
-            break;        
-        case '/':
-            return num1 / num2; 
-            break;                  
-    }
+    
+
+function toCalculate() {
+
+    let displayValue = '';
+    displayValue += inputField.textContent;
+    let arrayToCalculate = displayValue.split(' ');
+
+    let num1 = arrayToCalculate[0] *= 1,
+        operator = arrayToCalculate[1],
+        num2 = arrayToCalculate[2] *= 1,
+        result = 0;
+
+    // if (operator == '+') {
+    //     result = num1 + num2;
+    //             inputField.textContent = result;
+    // } else if (operator == '\u2212') {
+    //     result = num1 - num2;
+    //              inputField.textContent = result;    
+    // } else if (operator == '\u00D7') {
+    //     result = num1 * num2;
+    //              inputField.textContent = result;    
+    // }  else if (operator == '\u00F7') {
+    //     result = num1 / num2;
+    //              inputField.textContent = result;
+    // };
+
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                inputField.textContent = result;
+                break;
+            case '\u2212':
+                result = num1 - num2;
+                inputField.textContent = result;
+                break;
+            case '\u00D7':  
+                result = num1 * num2;
+                inputField.textContent = result;    
+                break;   
+            case '\u00F7':
+                result = num1 / num2;
+                inputField.textContent = result;
+                break;                  
+        };
+
 };
+
+equalSign.addEventListener('click', toCalculate);
+
