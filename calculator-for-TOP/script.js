@@ -19,10 +19,15 @@ let inputField = document.querySelector('.display'),
     clearEntryButton = document.querySelector('.clearentry'),
     multyplyImage = ' \u00D7 ',
     minusImage = ' \u2212 ',
-    divideImage = ' \u00F7 ';
+    divideImage = ' \u00F7 ',
+    operators = document.querySelectorAll('.operator');
 
 
-    
+    let displayValue = '';
+    displayValue += inputField.textContent;
+    let arrayToCalculate = displayValue.split(' ');
+
+    let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
 
     button0.addEventListener('click', () => {
         inputField.textContent += 0;
@@ -99,11 +104,10 @@ let inputField = document.querySelector('.display'),
         inputField.textContent = '';
     });
 
+    equalSign.addEventListener('click', toCalculate);
     
 
 function toCalculate() {
-
-    let displayValue = '';
     displayValue += inputField.textContent;
     let arrayToCalculate = displayValue.split(' ');
 
@@ -111,21 +115,6 @@ function toCalculate() {
         operator = arrayToCalculate[1],
         num2 = arrayToCalculate[2] *= 1,
         result = 0;
-
-    // if (operator == '+') {
-    //     result = num1 + num2;
-    //             inputField.textContent = result;
-    // } else if (operator == '\u2212') {
-    //     result = num1 - num2;
-    //              inputField.textContent = result;    
-    // } else if (operator == '\u00D7') {
-    //     result = num1 * num2;
-    //              inputField.textContent = result;    
-    // }  else if (operator == '\u00F7') {
-    //     result = num1 / num2;
-    //              inputField.textContent = result;
-    // };
-
 
         switch (operator) {
             case '+':
@@ -148,5 +137,21 @@ function toCalculate() {
 
 };
 
-equalSign.addEventListener('click', toCalculate);
+
+operators.forEach(operatorItem => {
+    operatorItem.addEventListener('click', () => {
+
+        displayValue += inputField.textContent;
+        let arrayToCalculate = displayValue.split(' ');
+
+        let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
+
+        if (arrayToCalculate.length == 4 && arrayWithOperators.length == 2 ) {
+            toCalculate();
+            inputField.textContent += ' ' + arrayWithOperators[1] + ' ';
+        }
+    });
+});
+
+
 
