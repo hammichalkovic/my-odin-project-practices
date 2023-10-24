@@ -25,65 +25,84 @@ let inputField = document.querySelector('.display'),
 
     let displayValue = '';
     displayValue += inputField.textContent;
-    let arrayToCalculate = displayValue.split(' ');
+        
 
-    let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
+
+
+   
+    // let arrayToCalculate = displayValue.split(' ');
+
+    // let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
 
     button0.addEventListener('click', () => {
         inputField.textContent += 0;
+        displayValue += 0;
     });
 
     button1.addEventListener('click', () => {
         inputField.textContent += 1;
+        displayValue += 1;
     });
 
     button2.addEventListener('click', () => {
         inputField.textContent += 2;
+        displayValue += 2;
     });
 
     button3.addEventListener('click', () => {
         inputField.textContent += 3;
+        displayValue += 3;
     });
 
     button4.addEventListener('click', () => {
         inputField.textContent += 4;
+        displayValue += 4;
     });
 
     button5.addEventListener('click', () => {
         inputField.textContent += 5;
+        displayValue += 5;
     });
 
     button6.addEventListener('click', () => {
         inputField.textContent += 6;
+        displayValue += 6;
     });
 
     button7.addEventListener('click', () => {
         inputField.textContent += 7;
+        displayValue += 7;
     });
 
     button8.addEventListener('click', () => {
         inputField.textContent += 8;
+        displayValue += 8;
     });
 
     button9.addEventListener('click', () => {
         inputField.textContent += 9;
+        displayValue += 9;
     });
 
     plusSign.addEventListener('click', () => {
         inputField.textContent += ' + ';
+        displayValue += ' + ';
     });
 
     minusSign.addEventListener('click', () => {
         inputField.textContent += minusImage;
+        displayValue += minusImage;
     });
 
     multiplySign.addEventListener('click', () => {
         inputField.textContent += multyplyImage;
+        displayValue += multyplyImage;
         
     });
 
     divideSign.addEventListener('click', () => {
         inputField.textContent += divideImage;
+        displayValue += divideImage;
     });
 
     clearEntryButton.addEventListener('click', () => {
@@ -98,23 +117,30 @@ let inputField = document.querySelector('.display'),
         }
 
         inputField.textContent = newValue;
+        displayValue = newValue;
     });
 
     clearAllButton.addEventListener('click', () => {
         inputField.textContent = '';
+        displayValue = '';
     });
 
     equalSign.addEventListener('click', toCalculate);
     
 
-function toCalculate() {
-    displayValue += inputField.textContent;
-    let arrayToCalculate = displayValue.split(' ');
+   function toCalculate() {
+   
+        resultVar = 0;
 
-    let num1 = arrayToCalculate[0] *= 1,
-        operator = arrayToCalculate[1],
-        num2 = arrayToCalculate[2] *= 1,
-        result = 0;
+     
+       arrayToCalculate = displayValue.split(' ');
+
+        for (let i = 0; i < arrayToCalculate.length; i++) {
+
+        let num1 = arrayToCalculate[0] *= 1,
+            operator = arrayToCalculate[1],
+            num2 = arrayToCalculate[2] *= 1,
+            result = 0;
 
         switch (operator) {
             case '+':
@@ -135,23 +161,16 @@ function toCalculate() {
                 break;                  
         };
 
-};
+        resultVar = result;
+        arrayToCalculate.splice(0, 3, resultVar);
+
+        };
+
+    };
 
 
-operators.forEach(operatorItem => {
-    operatorItem.addEventListener('click', () => {
 
-        displayValue += inputField.textContent;
-        let arrayToCalculate = displayValue.split(' ');
 
-        let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
-
-        if (arrayToCalculate.length == 4 && arrayWithOperators.length == 2 ) {
-            toCalculate();
-            inputField.textContent += ' ' + arrayWithOperators[1] + ' ';
-        }
-    });
-});
 
 
 
