@@ -25,12 +25,13 @@ let inputField = document.querySelector('.display'),
 
     let displayValue = '';
     displayValue += inputField.textContent;
-        
+    
+    // let arrayToCalculate = displayValue.split(' ');
 
 
 
    
-    // let arrayToCalculate = displayValue.split(' ');
+    
 
     // let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
 
@@ -125,15 +126,55 @@ let inputField = document.querySelector('.display'),
         displayValue = '';
     });
 
-    equalSign.addEventListener('click', toCalculate);
+    // equalSign.addEventListener('click', toCalculate);
+
     
+    operators.forEach(operator => {
+        operator.addEventListener('click', () => {
+            arrayToCalculate = displayValue.split(' ');
+            // arrayToCalculate[arrayToCalculate.length - 1] *= 1;
+            if (arrayToCalculate.length > 3) {
+                arrayToCalculate.pop();
+
+                    
+            let num1 = arrayToCalculate[0] *= 1,
+            operator = arrayToCalculate[1],
+            num2 = arrayToCalculate[2] *= 1,
+            result = 0;
+                    
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
+                    break;
+                case '\u2212':
+                    result = num1 - num2;
+                    inputField.textContent = result;
+                    break;
+                case '\u00D7':  
+                    result = num1 * num2;
+                    inputField.textContent = result;    
+                    break;   
+                case '\u00F7':
+                    result = num1 / num2;
+                    inputField.textContent = result;
+                    break;                  
+            };
+
+                    resultVar = result;
+                    arrayToCalculate.splice(0, 3, resultVar);
+
+                    console.log(arrayToCalculate);
+                };
+        });
+    });
 
    function toCalculate() {
    
         resultVar = 0;
 
      
-       arrayToCalculate = displayValue.split(' ');
+    //    arrayToCalculate = displayValue.split(' ');
 
         for (let i = 0; i < arrayToCalculate.length; i++) {
 
