@@ -126,17 +126,34 @@ let inputField = document.querySelector('.display'),
         displayValue = '';
     });
 
-    // equalSign.addEventListener('click', toCalculate);
+    // THERE TO START NEXT TIME
+
+    equalSign.addEventListener('click', () => {
+        let operator = document.querySelector('.operator');
+
+        if (displayValue = ' ' + operator + ' ') {
+            // clearAllButton();
+            inputField.textContent = '';
+            displayValue = '';
+        } 
+
+        toCalculate();
+        
+    });
 
     
     operators.forEach(operator => {
         operator.addEventListener('click', () => {
             arrayToCalculate = displayValue.split(' ');
             // arrayToCalculate[arrayToCalculate.length - 1] *= 1;
-            if (arrayToCalculate.length > 3) {
+            
+            while (arrayToCalculate.length > 3) {
                 arrayToCalculate.pop();
+                toCalculateIteration();
+            };
 
-                    
+            function toCalculateIteration() {
+          
             let num1 = arrayToCalculate[0] *= 1,
             operator = arrayToCalculate[1],
             num2 = arrayToCalculate[2] *= 1,
@@ -146,35 +163,37 @@ let inputField = document.querySelector('.display'),
                 case '+':
                     result = num1 + num2;
                     inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
+                    // arrayToCalculate = inputField.textContent;
                     break;
                 case '\u2212':
                     result = num1 - num2;
-                    inputField.textContent = result;
+                    inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                     break;
                 case '\u00D7':  
                     result = num1 * num2;
-                    inputField.textContent = result;    
+                    inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';  
                     break;   
                 case '\u00F7':
                     result = num1 / num2;
-                    inputField.textContent = result;
+                    inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                     break;                  
             };
 
                     resultVar = result;
                     arrayToCalculate.splice(0, 3, resultVar);
-
+                    displayValue = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                     console.log(arrayToCalculate);
                 };
         });
+       
+        
     });
 
    function toCalculate() {
    
         resultVar = 0;
-
      
-    //    arrayToCalculate = displayValue.split(' ');
+        arrayToCalculate = displayValue.split(' ');  
 
         for (let i = 0; i < arrayToCalculate.length; i++) {
 
@@ -205,7 +224,7 @@ let inputField = document.querySelector('.display'),
         resultVar = result;
         arrayToCalculate.splice(0, 3, resultVar);
 
-        };
+    };
 
     };
 
