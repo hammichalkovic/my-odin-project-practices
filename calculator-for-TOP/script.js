@@ -126,19 +126,23 @@ let inputField = document.querySelector('.display'),
         displayValue = '';
     });
 
-    // THERE TO START NEXT TIME
+    // HERE TO START NEXT TIME
 
     equalSign.addEventListener('click', () => {
-        let operator = document.querySelector('.operator');
+        
+            // arrayToCalculate = displayValue.split(' ');  
 
-        if (displayValue = ' ' + operator + ' ') {
+        if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '') {
             // clearAllButton();
+            inputField.textContent = arrayToCalculate[0];
+            displayValue = arrayToCalculate[0];
+        } else if (arrayToCalculate.length == 3 && arrayToCalculate[0] == '' && arrayToCalculate[2] == '') {
             inputField.textContent = '';
             displayValue = '';
-        } 
 
-        toCalculate();
-        
+        } else {
+            toCalculate();
+        }
     });
 
     
