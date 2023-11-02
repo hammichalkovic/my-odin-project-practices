@@ -106,6 +106,11 @@ let inputField = document.querySelector('.display'),
         displayValue += divideImage;
     });
 
+    period.addEventListener('click', () => {
+        inputField.textContent += '.';
+        displayValue += '.';
+    });
+
     clearEntryButton.addEventListener('click', () => {
 
         let newValue = '';
