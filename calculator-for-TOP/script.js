@@ -20,7 +20,8 @@ let inputField = document.querySelector('.display'),
     multyplyImage = ' \u00D7 ',
     minusImage = ' \u2212 ',
     divideImage = ' \u00F7 ',
-    operators = document.querySelectorAll('.operator');
+    operators = document.querySelectorAll('.operator'),
+    almostEqual = '\u2248 ';
 
 
     let displayValue = '';
@@ -131,21 +132,22 @@ let inputField = document.querySelector('.display'),
         displayValue = '';
     });
 
-    // HERE TO START NEXT TIME
+   
 
     equalSign.addEventListener('click', () => {
         
-            // arrayToCalculate = displayValue.split(' ');  
+            arrayToCalculate = displayValue.split(' ');  
+            console.log(arrayToCalculate);
 
         if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '') {
             // clearAllButton();
             inputField.textContent = arrayToCalculate[0];
             displayValue = arrayToCalculate[0];
-        } else if (arrayToCalculate.length == 3 && arrayToCalculate[0] == '' && arrayToCalculate[2] == '') {
+        } else if (arrayToCalculate.length == 3 && arrayToCalculate[0] == '' ) {
             inputField.textContent = '';
             displayValue = '';
 
-        } else {
+        }  else {
             toCalculate();
         }
     });
@@ -214,24 +216,30 @@ let inputField = document.querySelector('.display'),
         switch (operator) {
             case '+':
                 result = num1 + num2;
-                inputField.textContent = result;
+                
                 break;
             case '\u2212':
                 result = num1 - num2;
-                inputField.textContent = result;
                 break;
             case '\u00D7':  
-                result = num1 * num2;
-                inputField.textContent = result;    
+                result = num1 * num2;    
                 break;   
             case '\u00F7':
                 result = num1 / num2;
-                inputField.textContent = result;
                 break;                  
         };
 
-        resultVar = result;
-        arrayToCalculate.splice(0, 3, resultVar);
+            resultVar = result;
+            arrayToCalculate.splice(0, 3, resultVar); 
+            resultString = String(resultVar);   
+            
+        if (resultString.length > 15) {
+            // result = almostEqual + result;
+            inputField.textContent = almostEqual + result;
+            
+        } else if (resultString.length <= 15) {
+            inputField.textContent = result;
+        };
 
     };
 
