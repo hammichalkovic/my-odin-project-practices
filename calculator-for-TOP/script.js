@@ -233,11 +233,18 @@ let inputField = document.querySelector('.display'),
             arrayToCalculate.splice(0, 3, resultVar); 
             resultString = String(resultVar);   
             
-        if (resultString.length > 15) {
+        if (resultString.length > 15 && resultString.match('.')) {
             // result = almostEqual + result;
+            result = Math.round(result * 100000000000) / 100000000000;
             inputField.textContent = almostEqual + result;
+            // console.log(inputField.textContent);
             
+        } else if (resultString.length > 15) {
+            resultString.splice(16, 0, '\n');
+            inputField.textContent = almostEqual + result;
+            // console.log(inputField.textContent);
         } else if (resultString.length <= 15) {
+            console.log(inputField.textContent);
             inputField.textContent = result;
         };
 

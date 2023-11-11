@@ -36,7 +36,9 @@ body {
     "ac ac ce ce";
     gap: 0.5rem;
     margin-left: -60px;
+    padding-top: 3px;
 }
+
 
 .digit,
 .clearall,
@@ -52,6 +54,8 @@ body {
     height: 35px;
     width: 50px;
 }
+
+
 
 .digit:active,
 .clearall:active,
@@ -73,6 +77,7 @@ body {
     display: flex;
     padding-left: 10px;
     padding-top: 10px;
+    flex-wrap: wrap;
 }
 
 .clearall {
