@@ -26,11 +26,11 @@ let inputField = document.querySelector('.display'),
 
     let displayValue = '';
     displayValue += inputField.textContent;
-    
+
+    if (inputField.textContent.length > 48) {
+        inputField.text(inputField.text().substr(0,48));
+    }
     // let arrayToCalculate = displayValue.split(' ');
-
-
-
    
     
 
@@ -192,6 +192,10 @@ let inputField = document.querySelector('.display'),
 
                     resultVar = result;
                     arrayToCalculate.splice(0, 3, resultVar);
+                    console.log(typeof result);
+                    if (result.length > 15) {
+                        result = String(result).slice(0, 15) + '\n' + String(result).slice(15);
+                    }
                     displayValue = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                     console.log(arrayToCalculate);
                 };
@@ -233,15 +237,9 @@ let inputField = document.querySelector('.display'),
             arrayToCalculate.splice(0, 3, resultVar); 
             resultString = String(resultVar);   
             
-        if (resultString.length > 15 && resultString.match('.')) {
-            // result = almostEqual + result;
-            result = Math.round(result * 100000000000) / 100000000000;
-            inputField.textContent = almostEqual + result;
-            // console.log(inputField.textContent);
-            
-        } else if (resultString.length > 15) {
-            resultString.splice(16, 0, '\n');
-            inputField.textContent = almostEqual + result;
+         if (resultString.length > 15) {
+            resultString = resultString.slice(0, 15) + '\n' + resultString.slice(15);
+            inputField.textContent =  resultString;
             // console.log(inputField.textContent);
         } else if (resultString.length <= 15) {
             console.log(inputField.textContent);
