@@ -21,7 +21,8 @@ let inputField = document.querySelector('.display'),
     minusImage = ' \u2212 ',
     divideImage = ' \u00F7 ',
     operators = document.querySelectorAll('.operator'),
-    almostEqual = '\u2248 ';
+    almostEqual = '\u2248 ',
+    errorMsg = 'ERROR!';
 
 
     let displayValue = '';
@@ -130,7 +131,15 @@ let inputField = document.querySelector('.display'),
         displayValue = '';
         resultString = '';
         resultVar = 0;
+        
     });
+
+    let clearRfrsh = () => {
+        inputField.textContent = '';
+        displayValue = '';
+        resultString = '';
+        resultVar = 0;
+    }
 
    
 
@@ -147,6 +156,9 @@ let inputField = document.querySelector('.display'),
             inputField.textContent = '';
             displayValue = '';
 
+        } else if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '0') {
+            inputField.textContent = errorMsg;
+            setTimeout(clearRfrsh, 2000);
         }  else {
             toCalculate();
         }
@@ -185,8 +197,15 @@ let inputField = document.querySelector('.display'),
                     inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';  
                     break;   
                 case '\u00F7':
+                    //ACTUAL CODING AREA
+                    if (num2 == 0) {
+                        inputField.textContent = errorMsg;
+                        setTimeout(clearRfrsh, 2000);
+                    } else if ( num2 != 0) {
+                    // ACTUAL CODING AREA
                     result = num1 / num2;
                     inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
+                    };
                     break;                  
             };
 
