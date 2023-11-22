@@ -128,6 +128,8 @@ let inputField = document.querySelector('.display'),
     clearAllButton.addEventListener('click', () => {
         inputField.textContent = '';
         displayValue = '';
+        resultString = '';
+        resultVar = 0;
     });
 
    
