@@ -27,12 +27,10 @@ let inputField = document.querySelector('.display'),
     let displayValue = '';
     displayValue += inputField.textContent;
 
-    if (inputField.textContent.length > 48) {
-        inputField.text(inputField.text().substr(0,48));
-    }
+    
     // let arrayToCalculate = displayValue.split(' ');
    
-    
+  
 
     // let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
 

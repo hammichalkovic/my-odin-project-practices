@@ -79,6 +79,11 @@ body {
     flex-wrap: wrap;
     overflow-wrap: anywhere;
     box-sizing: border-box;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    height: 80px;
 }
 
 .clearall {
