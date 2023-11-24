@@ -22,7 +22,8 @@ let inputField = document.querySelector('.display'),
     divideImage = ' \u00F7 ',
     operators = document.querySelectorAll('.operator'),
     almostEqual = '\u2248 ',
-    errorMsg = 'ERROR!';
+    errorMsg = 'ERROR!',
+    periodSign = '.';
 
 
     let displayValue = '';
@@ -107,8 +108,34 @@ let inputField = document.querySelector('.display'),
     });
 
     period.addEventListener('click', () => {
-        inputField.textContent += '.';
-        displayValue += '.';
+        if (inputField.textContent.includes(periodSign) === false) {
+            inputField.textContent += '.';
+            displayValue += '.';
+        } else if (arrayToCalculate[0].includes(periodSign) === true) {
+            for (let i = 0; i < arrayToCalculate.length; i++) {
+                if (arrayToCalculate[i].includes(periodSign) === false) {
+                    inputField.textContent += '.';
+                    displayValue += '.';
+                } else if (arrayToCalculate[i].includes(periodSign) === true) {
+                    inputField.textContent += '';
+                    displayValue += '';
+                }
+            }
+
+
+            // if (arrayToCalculate[2].includes(periodSign) === false) {
+            //     inputField.textContent += '.';
+            //     displayValue += '.';
+            // } else if (arrayToCalculate[2].includes(periodSign) === true) {
+            //     inputField.textContent += '';
+            //     displayValue += '';
+            // }
+        } else if (inputField.textContent.includes(periodSign) === true) {
+            inputField.textContent += '';
+            displayValue += '';
+        }
+
+
     });
 
     clearEntryButton.addEventListener('click', () => {
