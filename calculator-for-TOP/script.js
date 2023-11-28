@@ -75,6 +75,60 @@ let inputField = document.querySelector('.display'),
 
     // let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
 
+    function toCalculateIterationWithCondition() {
+        arrayToCalculate = displayValue.split(' ');
+        // arrayToCalculate[arrayToCalculate.length - 1] *= 1;
+        
+        while (arrayToCalculate.length > 3) {
+            arrayToCalculate.pop();
+            toCalculateIteration();
+        };
+
+        function toCalculateIteration() {
+      
+        let num1 = arrayToCalculate[0] *= 1,
+        operator = arrayToCalculate[1],
+        num2 = arrayToCalculate[2] *= 1,
+        result = 0;
+                
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
+                // arrayToCalculate = inputField.textContent;
+                break;
+            case '\u2212':
+                result = num1 - num2;
+                inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
+                break;
+            case '\u00D7':  
+                result = num1 * num2;
+                inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';  
+                break;   
+            case '\u00F7':
+                //ACTUAL CODING AREA
+                if (num2 == 0) {
+                    inputField.textContent = errorMsg;
+                    setTimeout(clearRfrsh, 2000);
+                } else if ( num2 != 0) {
+                // ACTUAL CODING AREA
+                result = num1 / num2;
+                inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
+                };
+                break;                  
+        };
+
+                resultVar = result;
+                arrayToCalculate.splice(0, 3, resultVar);
+                console.log(typeof result);
+                if (result.length > 15) {
+                    result = String(result).slice(0, 15) + '\n' + String(result).slice(15);
+                }
+                displayValue = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
+                console.log(arrayToCalculate);
+            };
+    }
+
     function toType0() {
         inputField.textContent += 0;
         displayValue += 0;
@@ -148,6 +202,7 @@ let inputField = document.querySelector('.display'),
     function toTypePlus() {
         inputField.textContent += ' + ';
         displayValue += ' + ';
+        toCalculateIterationWithCondition();
     }
 
     plusSign.addEventListener('click', toTypePlus);
@@ -155,6 +210,7 @@ let inputField = document.querySelector('.display'),
     function toTypeMinus() {
         inputField.textContent += minusImage;
         displayValue += minusImage;
+        toCalculateIterationWithCondition();
     }
 
     minusSign.addEventListener('click', toTypeMinus);
@@ -162,6 +218,7 @@ let inputField = document.querySelector('.display'),
     function toTypeMultiply() {
         inputField.textContent += multyplyImage;
         displayValue += multyplyImage;
+        toCalculateIterationWithCondition();
     }
 
     multiplySign.addEventListener('click', toTypeMultiply);
@@ -169,6 +226,7 @@ let inputField = document.querySelector('.display'),
     function toTypeDivide() {
         inputField.textContent += divideImage;
         displayValue += divideImage;
+        toCalculateIterationWithCondition();
     }
 
     divideSign.addEventListener('click', toTypeDivide);
@@ -232,7 +290,7 @@ let inputField = document.querySelector('.display'),
 
     function toTypeEqual() {
         arrayToCalculate = displayValue.split(' ');  
-        // console.log(arrayToCalculate);
+        // console.log(arrayToCalculate); 
 
     if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '') {
         // clearAllButton();
@@ -252,63 +310,10 @@ let inputField = document.querySelector('.display'),
 
     equalSign.addEventListener('click', toTypeEqual);
 
+
     
     operators.forEach(operator => {
-        operator.addEventListener('click', () => {
-            arrayToCalculate = displayValue.split(' ');
-            // arrayToCalculate[arrayToCalculate.length - 1] *= 1;
-            
-            while (arrayToCalculate.length > 3) {
-                arrayToCalculate.pop();
-                toCalculateIteration();
-            };
-
-            function toCalculateIteration() {
-          
-            let num1 = arrayToCalculate[0] *= 1,
-            operator = arrayToCalculate[1],
-            num2 = arrayToCalculate[2] *= 1,
-            result = 0;
-                    
-            switch (operator) {
-                case '+':
-                    result = num1 + num2;
-                    inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
-                    // arrayToCalculate = inputField.textContent;
-                    break;
-                case '\u2212':
-                    result = num1 - num2;
-                    inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
-                    break;
-                case '\u00D7':  
-                    result = num1 * num2;
-                    inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';  
-                    break;   
-                case '\u00F7':
-                    //ACTUAL CODING AREA
-                    if (num2 == 0) {
-                        inputField.textContent = errorMsg;
-                        setTimeout(clearRfrsh, 2000);
-                    } else if ( num2 != 0) {
-                    // ACTUAL CODING AREA
-                    result = num1 / num2;
-                    inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
-                    };
-                    break;                  
-            };
-
-                    resultVar = result;
-                    arrayToCalculate.splice(0, 3, resultVar);
-                    console.log(typeof result);
-                    if (result.length > 15) {
-                        result = String(result).slice(0, 15) + '\n' + String(result).slice(15);
-                    }
-                    displayValue = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
-                    console.log(arrayToCalculate);
-                };
-        });
-       
-        
+        operator.addEventListener('click', toCalculateIterationWithCondition); 
     });
 
    function toCalculate() {
