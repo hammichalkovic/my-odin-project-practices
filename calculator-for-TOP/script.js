@@ -30,6 +30,44 @@ let inputField = document.querySelector('.display'),
     let displayValue = '';
     displayValue += inputField.textContent;
 
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace') {
+            toCleanEntry();
+        } else if (e.key === '0') {
+            toType0();
+        } else if (e.key === '1') {
+            toType1();
+        }  else if (e.key === '2') {
+            toType2();
+        } else if (e.key === '3') {
+            toType3();
+        } else if (e.key === '4') {
+            toType4();
+        } else if (e.key === '5') {
+            toType5();
+        } else if (e.key === '6') {
+            toType6();
+        } else if (e.key === '7') {
+            toType7();
+        } else if (e.key === '8') {
+            toType8();
+        } else if (e.key === '9') {
+            toType9();
+        } else if (e.key === '-') {
+            toTypeMinus();
+        } else if (e.key === '+') {
+            toTypePlus();
+        } else if (e.key === '*') {
+            toTypeMultiply();
+        } else if (e.key === '/') {
+            toTypeDivide();
+        } else if (e.key === '.') {
+            toTypePeriod();
+        } else if (e.key === 'Enter') {
+            toTypeEqual();
+        }
+
+    })
     
     // let arrayToCalculate = displayValue.split(' ');
    
@@ -37,79 +75,105 @@ let inputField = document.querySelector('.display'),
 
     // let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
 
-    button0.addEventListener('click', () => {
+    function toType0() {
         inputField.textContent += 0;
         displayValue += 0;
-    });
+    }
 
-    button1.addEventListener('click', () => {
+    button0.addEventListener('click', toType0);
+
+    function toType1() {
         inputField.textContent += 1;
         displayValue += 1;
-    });
+    }
 
-    button2.addEventListener('click', () => {
+    button1.addEventListener('click', toType1);
+
+    function toType2() {
         inputField.textContent += 2;
         displayValue += 2;
-    });
+    }
 
-    button3.addEventListener('click', () => {
+    button2.addEventListener('click', toType2);
+
+    function toType3() {
         inputField.textContent += 3;
         displayValue += 3;
-    });
+    }
 
-    button4.addEventListener('click', () => {
+    button3.addEventListener('click', toType3);
+
+    function toType4() {
         inputField.textContent += 4;
         displayValue += 4;
-    });
+    }
 
-    button5.addEventListener('click', () => {
+    button4.addEventListener('click', toType4);
+
+    function toType5() {
         inputField.textContent += 5;
         displayValue += 5;
-    });
+    }
 
-    button6.addEventListener('click', () => {
+    button5.addEventListener('click', toType5);
+
+    function toType6() {
         inputField.textContent += 6;
         displayValue += 6;
-    });
+    }
 
-    button7.addEventListener('click', () => {
+    button6.addEventListener('click', toType6);
+
+    function toType7() {
         inputField.textContent += 7;
         displayValue += 7;
-    });
+    }
 
-    button8.addEventListener('click', () => {
+    button7.addEventListener('click', toType7);
+
+    function toType8() {
         inputField.textContent += 8;
         displayValue += 8;
-    });
+    }
 
-    button9.addEventListener('click', () => {
+    button8.addEventListener('click', toType8);
+
+    function toType9() {
         inputField.textContent += 9;
         displayValue += 9;
-    });
+    }
 
-    plusSign.addEventListener('click', () => {
+    button9.addEventListener('click', toType9);
+
+    function toTypePlus() {
         inputField.textContent += ' + ';
         displayValue += ' + ';
-    });
+    }
 
-    minusSign.addEventListener('click', () => {
+    plusSign.addEventListener('click', toTypePlus);
+
+    function toTypeMinus() {
         inputField.textContent += minusImage;
         displayValue += minusImage;
-    });
+    }
 
-    multiplySign.addEventListener('click', () => {
+    minusSign.addEventListener('click', toTypeMinus);
+
+    function toTypeMultiply() {
         inputField.textContent += multyplyImage;
         displayValue += multyplyImage;
-        
-    });
+    }
 
-    divideSign.addEventListener('click', () => {
+    multiplySign.addEventListener('click', toTypeMultiply);
+
+    function toTypeDivide() {
         inputField.textContent += divideImage;
         displayValue += divideImage;
-    });
+    }
 
-    period.addEventListener('click', () => {
+    divideSign.addEventListener('click', toTypeDivide);
 
+    function toTypePeriod() {
         arrayToCalculate = inputField.textContent.split(' ');
         splitedDisplayArr = inputField.textContent.split('');
         periodOccurrencies = splitedDisplayArr.filter(item => item == '.');
@@ -128,10 +192,11 @@ let inputField = document.querySelector('.display'),
                 inputField.textContent += '';
                 displayValue += '';
             }
+    }
 
-    });
+    period.addEventListener('click', toTypePeriod);
 
-    clearEntryButton.addEventListener('click', () => {
+    function toCleanEntry() {
 
         let newValue = '';
         
@@ -144,46 +209,48 @@ let inputField = document.querySelector('.display'),
 
         inputField.textContent = newValue;
         displayValue = newValue;
-    });
 
-    clearAllButton.addEventListener('click', () => {
-        inputField.textContent = '';
-        displayValue = '';
-        resultString = '';
-        resultVar = 0;
-        splitedDisplayArr = [];
-        
-    });
+        if (inputField.textContent == '') {
+            clearRfrsh();
+        }
+    };
+
+    clearEntryButton.addEventListener('click', toCleanEntry);
 
     let clearRfrsh = () => {
         inputField.textContent = '';
         displayValue = '';
         resultString = '';
         resultVar = 0;
+        splitedDisplayArr = [];
     }
+   
+
+    clearAllButton.addEventListener('click', clearRfrsh);
 
    
 
-    equalSign.addEventListener('click', () => {
-        
-            arrayToCalculate = displayValue.split(' ');  
-            console.log(arrayToCalculate);
+    function toTypeEqual() {
+        arrayToCalculate = displayValue.split(' ');  
+        // console.log(arrayToCalculate);
 
-        if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '') {
-            // clearAllButton();
-            inputField.textContent = arrayToCalculate[0];
-            displayValue = arrayToCalculate[0];
-        } else if (arrayToCalculate.length == 3 && arrayToCalculate[0] == '' ) {
-            inputField.textContent = '';
-            displayValue = '';
+    if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '') {
+        // clearAllButton();
+        inputField.textContent = arrayToCalculate[0];
+        displayValue = arrayToCalculate[0];
+    } else if (arrayToCalculate.length == 3 && arrayToCalculate[0] == '' ) {
+        inputField.textContent = '';
+        displayValue = '';
 
-        } else if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '0') {
-            inputField.textContent = errorMsg;
-            setTimeout(clearRfrsh, 2000);
-        }  else {
-            toCalculate();
-        }
-    });
+    } else if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '0') {
+        inputField.textContent = errorMsg;
+        setTimeout(clearRfrsh, 2000);
+    }  else {
+        toCalculate();
+    }
+    }
+
+    equalSign.addEventListener('click', toTypeEqual);
 
     
     operators.forEach(operator => {
