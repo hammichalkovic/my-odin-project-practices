@@ -107,12 +107,13 @@ let inputField = document.querySelector('.display'),
                 break;   
             case '\u00F7':
                 //ACTUAL CODING AREA
-                if (num2 == 0) {
+                result = num1 / num2;
+                if ( num2 == 0) {
                     inputField.textContent = errorMsg;
                     setTimeout(clearRfrsh, 2000);
                 } else if ( num2 != 0) {
                 // ACTUAL CODING AREA
-                result = num1 / num2;
+                // result = num1 / num2;
                 inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                 };
                 break;                  
@@ -121,9 +122,9 @@ let inputField = document.querySelector('.display'),
                 resultVar = result;
                 arrayToCalculate.splice(0, 3, resultVar);
                 console.log(typeof result);
-                if (result.length > 15) {
-                    result = String(result).slice(0, 15) + '\n' + String(result).slice(15);
-                }
+                // if (result.length > 15) {
+                //     result = String(result).slice(0, 15) + '\n' + String(result).slice(15);
+                // }
                 displayValue = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                 console.log(arrayToCalculate);
             };
@@ -281,6 +282,7 @@ let inputField = document.querySelector('.display'),
         resultString = '';
         resultVar = 0;
         splitedDisplayArr = [];
+        arrayToCalculate = [];
     }
    
 
@@ -300,10 +302,12 @@ let inputField = document.querySelector('.display'),
         inputField.textContent = '';
         displayValue = '';
 
-    } else if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '0') {
+    }
+     else if (arrayToCalculate.length == 3 && arrayToCalculate[2] == '0' && arrayToCalculate[1] == '\u00F7'){
         inputField.textContent = errorMsg;
         setTimeout(clearRfrsh, 2000);
-    }  else {
+    }
+      else {
         toCalculate();
     }
     }
@@ -348,6 +352,13 @@ let inputField = document.querySelector('.display'),
             resultVar = result;
             arrayToCalculate.splice(0, 3, resultVar); 
             resultString = String(resultVar);   
+            console.log(arrayToCalculate);
+
+
+
+
+            // inputField.textContent = result;
+            // inputField.textContent = resultString;
             
          if (resultString.length > 15) {
             resultString = resultString.slice(0, 15) + '\n' + resultString.slice(15);
