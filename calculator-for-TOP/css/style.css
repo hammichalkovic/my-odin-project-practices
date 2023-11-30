@@ -48,6 +48,7 @@ body {
     justify-content: center;
     border: 3px solid salmon;
     border-radius: 10px;
+    
 }
 
 .digit {
@@ -61,7 +62,7 @@ body {
 .clearall:active,
 .clearentry:active {
     background-color: salmon;
-    color: white;
+    border-color: white;
 }
 
 .digit:hover,
@@ -72,7 +73,7 @@ body {
 
 .display {
     grid-area: dis;
-    border: 3px solid salmon;
+    border: 3px solid #fa8072;
     border-radius: 10px;
     display: flex;
     padding: 10px;
@@ -96,4 +97,48 @@ body {
     grid-area: ce;
     border: 3px solid salmon;
     border-radius: 10px;
+}
+
+.one,
+.four,
+.seven,
+.period {
+    background: linear-gradient(to right, #03071e, #370617, #6a040f);
+    color: #EDC0B9;
+}
+
+.two,
+.five,
+.eight,
+.zero {
+    background: linear-gradient(to right, #9d0208, #d00000, #dc2f02, #e85d04);
+    color: #F6E0DC;
+}
+
+.three,
+.six,
+.nine {
+    background: linear-gradient(to right, #f48c06, #faa307, #ffba08);
+    color: white;
+}
+
+.divide {
+    background: linear-gradient(to bottom, #d9ed92, #b5e48c, #99d98c);
+    color: white;
+}
+
+.multiply {
+    background: linear-gradient(to bottom, #99d98c, #76c893, #52b69a);
+    color: #EDF9E3;
+}
+
+.minus {
+    background: linear-gradient(to bottom, #34a0a4, #168aad, #1a759f);
+    color: #E4F6D5;
+}
+
+.equal,
+.plus {
+    background: linear-gradient(to bottom, #1a759f, #1e6091, #184e77);
+    color: #DAF2C6;
 }

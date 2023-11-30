@@ -113,7 +113,7 @@ let inputField = document.querySelector('.display'),
                     setTimeout(clearRfrsh, 2000);
                 } else if ( num2 != 0) {
                 // ACTUAL CODING AREA
-                // result = num1 / num2;
+                result = num1 / num2;
                 inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                 };
                 break;                  
