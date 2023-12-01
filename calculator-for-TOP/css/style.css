@@ -10,13 +10,14 @@ body {
 }
 
 .calcborder {
-    border: 3px solid salmon;
+    border: 3px solid rgb(250, 189, 182);
     border-radius: 10px;
     height: 375px;
     width: 290px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(to top, #F9DCC4, white);
 }
 
 .digits-and-operators {
@@ -46,14 +47,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid salmon;
+    /* border: 3px solid salmon; */
     border-radius: 10px;
-    
+    outline-style: outset;
 }
 
 .digit {
-    height: 35px;
-    width: 50px;
+    /* height: 35px; */
+    height: 41px;
+    /* width: 50px; */
+    width: 56px;
+    border-color: transparent;
 }
 
 
@@ -61,8 +65,7 @@ body {
 .digit:active,
 .clearall:active,
 .clearentry:active {
-    background-color: salmon;
-    border-color: white;
+    outline-style: none;
 }
 
 .digit:hover,
@@ -73,7 +76,7 @@ body {
 
 .display {
     grid-area: dis;
-    border: 3px solid #fa8072;
+    border: 3px solid #fee440;
     border-radius: 10px;
     display: flex;
     padding: 10px;
@@ -85,17 +88,23 @@ body {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     height: 80px;
+    background-color: #fee440;
+    color: rgb(83, 83, 83);
 }
 
 .clearall {
     grid-area: ac;
     border: 3px solid salmon;
     border-radius: 10px;
+    background-color: salmon;
+    color: whitesmoke
 }
 
 .clearentry {
+    background-color: salmon;
     grid-area: ce;
     border: 3px solid salmon;
+    color: whitesmoke;
     border-radius: 10px;
 }
 

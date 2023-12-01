@@ -33,38 +33,157 @@ let inputField = document.querySelector('.display'),
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Backspace') {
             toCleanEntry();
+            clearEntryButton.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutlineCEB, 200);
+
+            function toRestoreTheDefaultOutlineCEB() {
+                clearEntryButton.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '0') {
             toType0();
+            button0.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline0, 200);
+
+            function toRestoreTheDefaultOutline0() {
+                button0.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '1') {
             toType1();
+            button1.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline1, 200);
+
+            function toRestoreTheDefaultOutline1() {
+                button1.style.cssText = 'outline-style: outset'
+            }
         }  else if (e.key === '2') {
             toType2();
+            button2.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline2, 200);
+
+            function toRestoreTheDefaultOutline2() {
+                button2.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '3') {
             toType3();
+            button3.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline3, 200);
+
+            function toRestoreTheDefaultOutline3() {
+                button3.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '4') {
             toType4();
+            button4.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline4, 200);
+
+            function toRestoreTheDefaultOutline4() {
+                button4.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '5') {
             toType5();
+            button5.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline5, 200);
+
+            function toRestoreTheDefaultOutline5() {
+                button5.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '6') {
             toType6();
+            button6.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline6, 200);
+
+            function toRestoreTheDefaultOutline6() {
+                button6.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '7') {
             toType7();
+            button7.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline7, 200);
+
+            function toRestoreTheDefaultOutline7() {
+                button7.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '8') {
             toType8();
+            button8.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline8, 200);
+
+            function toRestoreTheDefaultOutline8() {
+                button8.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '9') {
             toType9();
+            button9.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutline9, 200);
+
+            function toRestoreTheDefaultOutline9() {
+                button9.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '-') {
             toTypeMinus();
+            minusSign.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutlineMinus, 200);
+
+            function toRestoreTheDefaultOutlineMinus() {
+                minusSign.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '+') {
             toTypePlus();
+            plusSign.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutlinePlus, 200);
+
+            function toRestoreTheDefaultOutlinePlus() {
+                plusSign.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '*') {
             toTypeMultiply();
+            multiplySign.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutlineMultiply, 200);
+
+            function toRestoreTheDefaultOutlineMultiply() {
+                multiplySign.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '/') {
             toTypeDivide();
+            divideSign.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutlineDivide, 200);
+
+            function toRestoreTheDefaultOutlineDivide() {
+                divideSign.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === '.') {
             toTypePeriod();
+            period.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutlinePeriod, 200);
+
+            function toRestoreTheDefaultOutlinePeriod() {
+                period.style.cssText = 'outline-style: outset'
+            }
         } else if (e.key === 'Enter') {
             toTypeEqual();
+            equalSign.style.cssText = 'outline-style: none; ';
+
+            setTimeout(toRestoreTheDefaultOutlineEqual, 200);
+
+            function toRestoreTheDefaultOutlineEqual() {
+                equalSign.style.cssText = 'outline-style: outset'
+            }
         }
 
     })
@@ -74,6 +193,8 @@ let inputField = document.querySelector('.display'),
   
 
     // let arrayWithOperators = arrayToCalculate.filter(item => item == '+' || item == '\u2212' || item == '\u00D7' || item == '\u00F7');
+
+
 
     function toCalculateIterationWithCondition() {
         arrayToCalculate = displayValue.split(' ');
@@ -106,13 +227,11 @@ let inputField = document.querySelector('.display'),
                 inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';  
                 break;   
             case '\u00F7':
-                //ACTUAL CODING AREA
                 result = (num1 * 10 / num2 * 10);
                 if ( num2 == 0) {
                     inputField.textContent = errorMsg;
                     setTimeout(clearRfrsh, 2000);
                 } else if ( num2 != 0) {
-                // ACTUAL CODING AREA
                 result = num1 / num2;
                 inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                 };
@@ -238,7 +357,6 @@ let inputField = document.querySelector('.display'),
         splitedDisplayArr = inputField.textContent.split('');
         periodOccurrencies = splitedDisplayArr.filter(item => item == '.');
 
-
             if (periodOccurrencies.length < 2 && arrayToCalculate[0].includes('.') && arrayToCalculate.length == 3) {
                 inputField.textContent += '.';
                 displayValue += '.';
@@ -248,7 +366,13 @@ let inputField = document.querySelector('.display'),
             }  else if (periodOccurrencies.length < 2 && arrayToCalculate[0].includes('.') && arrayToCalculate.length == 1) {
                 inputField.textContent += '';
                 displayValue += '';
-            }  else if (periodOccurrencies.length == 2) {
+            }  else if (periodOccurrencies.length < 1 && !arrayToCalculate[0].includes('.') && arrayToCalculate.length == 3) {
+                inputField.textContent += '.';
+                displayValue += '.';
+            } else if (periodOccurrencies.length == 1 && !arrayToCalculate[0].includes('.') && arrayToCalculate.length == 3) {
+                inputField.textContent += '';
+                displayValue += '';
+            } else if (periodOccurrencies.length == 2) {
                 inputField.textContent += '';
                 displayValue += '';
             }
@@ -345,7 +469,7 @@ let inputField = document.querySelector('.display'),
                 result = (num1 * 10 * num2 * 10) / 100;    
                 break;   
             case '\u00F7':
-                result = (num1 * 10 / num2 * 10) / 100;
+                result = (num1 * 10) / (num2 * 10);
                 break;                  
         };
 
