@@ -93,21 +93,21 @@ let inputField = document.querySelector('.display'),
                 
         switch (operator) {
             case '+':
-                result = num1 + num2;
+                result = (num1 * 10 + num2 * 10)/ 10;
                 inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                 // arrayToCalculate = inputField.textContent;
                 break;
             case '\u2212':
-                result = num1 - num2;
+                result = (num1 * 10 - num2 * 10)/ 10;
                 inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';
                 break;
             case '\u00D7':  
-                result = num1 * num2;
+                result = (num1 * 10 * num2 * 10) /100;
                 inputField.textContent = result + ' ' + arrayToCalculate[arrayToCalculate.length -1] + ' ';  
                 break;   
             case '\u00F7':
                 //ACTUAL CODING AREA
-                result = num1 / num2;
+                result = (num1 * 10 / num2 * 10);
                 if ( num2 == 0) {
                     inputField.textContent = errorMsg;
                     setTimeout(clearRfrsh, 2000);
@@ -133,6 +133,7 @@ let inputField = document.querySelector('.display'),
     function toType0() {
         inputField.textContent += 0;
         displayValue += 0;
+        
     }
 
     button0.addEventListener('click', toType0);
@@ -335,17 +336,16 @@ let inputField = document.querySelector('.display'),
 
         switch (operator) {
             case '+':
-                result = num1 + num2;
-                
+                result = (num1 * 10  + num2 * 10) / 10;
                 break;
             case '\u2212':
-                result = num1 - num2;
+                result = (num1 * 10 - num2 * 10) / 10;
                 break;
             case '\u00D7':  
-                result = num1 * num2;    
+                result = (num1 * 10 * num2 * 10) / 100;    
                 break;   
             case '\u00F7':
-                result = num1 / num2;
+                result = (num1 * 10 / num2 * 10) / 100;
                 break;                  
         };
 
