@@ -1,4 +1,13 @@
 
+@font-face {
+    font-family: League Spartan;
+    src: url('../fonts/league-spartan/LeagueSpartan-Bold.otf');
+}
+
+html {
+    font-size: 2vh;
+}
+
 body {
     display: flex;
     margin: 0;
@@ -7,16 +16,19 @@ body {
 
 #wallpaper_and_title {
     background-image: url('../design/noam-cohen-STiLtEKYKdY-unsplash.jpg');
-    background-size: 130%;
+    background-size: 100vh;
     height: 100vh;
     width: 39.7vw;
     position: relative;
+    display: flex;
 }
 
 h1 {
     display: block;
     padding-left: 1vw;
     text-transform: uppercase;
+    font-family: 'League Spartan';
+    font-size:
 
 }
 
@@ -24,17 +36,29 @@ label {
     text-transform: uppercase;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    color: white;
+    border: 1px solid salmon;
+    
+    
+}
+
 #title_area {
     box-sizing: border-box;
     padding: 1vh 0;
     display: flex;
     justify-content: center;
-    border: 2px solid salmon;
+    /* border: 2px solid salmon; */
     height: 14.3vh;
     width: 100%;
     position: absolute;
     top: 21.5vh;
     color: white;
+    background-color: hsla(0, 0%, 0%, 0.4);
+    
 }
 
 
