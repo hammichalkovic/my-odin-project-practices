@@ -1,0 +1,41 @@
+
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#wallpaper_and_title {
+    background-image: url('../design/noam-cohen-STiLtEKYKdY-unsplash.jpg');
+    background-size: 130%;
+    height: 100vh;
+    width: 39.7vw;
+    position: relative;
+}
+
+h1 {
+    display: block;
+    padding-left: 1vw;
+    text-transform: uppercase;
+
+}
+
+label {
+    text-transform: uppercase;
+}
+
+#title_area {
+    box-sizing: border-box;
+    padding: 1vh 0;
+    display: flex;
+    justify-content: center;
+    border: 2px solid salmon;
+    height: 14.3vh;
+    width: 100%;
+    position: absolute;
+    top: 21.5vh;
+    color: white;
+}
+
+
+
