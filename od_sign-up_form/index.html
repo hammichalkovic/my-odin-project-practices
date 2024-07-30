@@ -20,7 +20,7 @@
     </section>
     <section id="main">
         <div id="lead">
-            <p id="lead__about">This is not a real online service! I'm just trying to build my own form using all the right API/attributes/elements for it. Sign up <span>now</span> and help me test it.</p>
+            <p id="lead__about">This is not a real online service! I've just tried to build my own form using all the right API/attributes/elements for it. Sign up <span>now</span> and help me test it.</p>
             <p id="lead__calling">I'm <span>glad</span> you've visited my page.</p>
         </div>
         <form action="#" id="myform" method="post">
@@ -39,9 +39,11 @@
                     <label for="confirm_password">Confirm password<input type="password" name="password_confirmation" id="confirm_password"></label>
                 </div>
             </fieldset>
-            <button id="create_account">Create Account</button>
         </form>
-        <p>Already have an account? <a href="#login">Log in</a></p>
+        <div id="bottom">
+            <button form="myform" id="create_account">Create Account</button>
+            <p>Already have an account?  <a id="login_link" href="#login"> Log in</a></p>
+        </div>
     </section>
 </body>
 </html>
