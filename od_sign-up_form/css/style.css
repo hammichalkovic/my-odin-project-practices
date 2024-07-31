@@ -38,6 +38,7 @@ body {
     width: 59.5%;
     position: relative;
     display: flex;
+    justify-content: center;
 }
 
 h1 {
@@ -79,8 +80,16 @@ footer {
     bottom: 0;
     align-self: center;
     color: white;
-    
-    
+    font-family: 'Quicksand Regular';
+    letter-spacing: -0.007rem;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background-color: hsla(0, 0%, 0%, 0.5);  
+    align-self: center; 
+}
+
+footer p {
+    padding: 0 20px;
 }
 
 legend {
@@ -127,6 +136,9 @@ span {
 
 #lead {
     font-family: Lack;
+    box-shadow: 0px -1px 5px -4px rgba(0,0,0,0.54) inset;
+-webkit-box-shadow: 0px -1px 5px -4px rgba(0,0,0,0.54) inset;
+-moz-box-shadow: 0px -1px 5px -4px rgba(0,0,0,0.54) inset;
 }
 
 #lead,
@@ -169,7 +181,7 @@ fieldset {
     flex-direction: column;
     justify-content: space-between;
     height: 23vh;
-
+    
     
 }
 
@@ -184,7 +196,14 @@ fieldset {
 
 #bottom {
     height: 34.8vh;
-    font-family: 'Quicksand Regular'
+    font-family: 'Quicksand Regular';
+    box-shadow: 0px 3px 10px -4px rgba(0,0,0,0.54) inset;
+-webkit-box-shadow: 0px 3px 10px -4px rgba(0,0,0,0.54) inset;
+-moz-box-shadow: 0px 3px 10px -4px rgba(0,0,0,0.54) inset;  
+}
+
+#bottom a:hover {
+    color: black;
 }
 
 a,
@@ -206,11 +225,32 @@ label {
     justify-content: center;
     border-radius: 10px;
     margin:3.5vh 0 3.5vh 3.5vw;
+    box-sizing: border-box;
+    padding-top: 2px;
+    box-shadow: 0px 7px 11px 2px rgba(0,0,0,0.21);
+-webkit-box-shadow: 0px 7px 11px 2px rgba(0,0,0,0.21);
+-moz-box-shadow: 0px 7px 11px 2px rgba(0,0,0,0.21);
 }
 
-#login_link {
+#create_account:hover {
+    cursor: pointer;
+}
+
+#create_account:active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+#login_link, 
+#attribution a {
     text-decoration: none;
     font-family: League Spartan;
     letter-spacing: 0.03rem;
     padding-left: 0.3rem;
+}
+
+#attribution a:hover {
+    cursor: pointer;
+    color: white;
 }
