@@ -46,7 +46,7 @@ h1 {
     padding-left: 1vw;
     text-transform: uppercase;
     font-family: 'League Spartan';
-    font-size:
+    
 
 }
 
@@ -69,11 +69,24 @@ label {
 
 input {
     height: 2.6vh;
-    width: 18vw;
+    width: 18.1vw;
     border-radius: 0.4vh;
     border: 1px solid #cacfce;
-    margin-top: 0.12rem;
+    margin: 0.12rem 0 0 0;
+    outline: none;
+    padding-left: 10px;
+    box-sizing: border-box;
+    position: relative;
 }
+
+input:focus {
+    border: 2px solid #829B96;
+    box-shadow: 0px 4px 5px 2px rgba(0,0,0,0.21);
+    -webkit-box-shadow: 0px 4px 5px 2px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 4px 5px 2px rgba(0,0,0,0.21);
+}
+
+
 
 footer {
     position: absolute;
@@ -108,7 +121,7 @@ span {
 #password_setting {
     display: flex;
     /* border: 1px solid salmon; */
-    width: 41.55vw;
+    width: 41.3vw;
     justify-content: space-between;
 }
 
@@ -181,8 +194,7 @@ fieldset {
     flex-direction: column;
     justify-content: space-between;
     height: 23vh;
-    
-    
+    /* width: 10vw; */
 }
 
 #lead__calling {
