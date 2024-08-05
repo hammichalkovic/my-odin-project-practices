@@ -221,6 +221,23 @@ fieldset {
 a,
 label {
     color: #829B96;
+    position: relative;
+}
+
+#error_message {
+    content: '';
+    color: rgb(226, 83, 83);
+    font-family: 'Quicksand Italic';
+    letter-spacing: 0.05rem;
+    text-transform: none;
+    font-size: 0.55rem;
+    position: absolute;
+    top: 4.3vh;
+    font-weight: 600;
+}
+
+input:invalid {
+    border: 1px solid rgb(226, 83, 83);
 }
 
 #create_account {
