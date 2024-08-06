@@ -27,19 +27,19 @@
             <fieldset>
                 <legend>Let's do this!</legend>
                 <div id="names">
-                    <label for="first_name">First name<input pattern="[A-Za-z]+" maxlength="10" id="first_name" name="first_name" type="text"><span id="error_message"></span></label>
+                    <label for="first_name">First name<input pattern="[A-Za-z]+" maxlength="20" id="first_name" name="first_name" type="text"><span id="error_message"></span></label>
                     
-                    <label for="last_name">Last name<input minlength="1" id="last_name" name="last_name" type="text"><span id="error_message"></span></label>
+                    <label for="last_name">Last name<input pattern="[+]?[A-Za-z]+" maxnlength="20" id="last_name" name="last_name" type="text"><span id="error_message"></span></label>
                     
                 </div>
                 <div id="contacts">
-                    <label for="email">Email<input minlength="1" type="email" id="email" name="email"><span id="error_message"></span></label>
+                    <label for="email">Email<input manlength="30" type="email" id="email" name="email"><span id="error_message"></span></label>
                     
-                    <label for="phone_number">Phone number<input minlength="1" type="tel" id="phone_number" name="phone_number"><span id="error_message"></span></label>
+                    <label for="phone_number">Phone number<input minlength="7" pattern="[+?0-9]+" maxlength="10" type="tel" id="phone_number" name="phone_number"><span id="error_message"></span></label>
                     
                 </div>
                 <div id="password_setting">
-                    <label for="password">Password<input minlength="1" type="password" name="password" id="password"><span id="error_message"></span></label>
+                    <label for="password">Password<input minlength="8" maxlength="15" pattern="[0-9A-Za-z]+" type="password" name="password" id="password"><span id="error_message"></span></label>
                     
                     <label for="confirm_password">Confirm password<input minlength="1" type="password" name="password_confirmation" id="confirm_password"><span id="error_message"></span></label>
                     
