@@ -1,0 +1,92 @@
+
+@font-face {
+font-family: 'Catamaran Thin';
+src: url(../fonts/Catamaran-Thin.ttf);
+}
+
+@font-face {
+    font-family: 'Catamaran Semibold';
+    src: url(../fonts/Catamaran-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Catamaran Regular';
+    src: url(../fonts/Catamaran-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Catamaran Medium';
+    src: url(../fonts/Catamaran-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Catamaran Light';
+    src: url(../fonts/Catamaran-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Catamaran Bold';
+    src: url(../fonts/Catamaran-Bold.ttf);
+}
+
+html {
+    font-size: 1vh;
+    
+}
+
+#sidebar,
+#header,
+.main-content__my_projects h2,
+.main-content__announcements h3
+ {
+    font-family: 'Catamaran Semibold';
+}
+
+#sidebar {
+    color: white;
+}
+
+#sidebar__header {
+    font-family: 'Catamaran Bold';
+    font-size: 2.85rem;
+}
+
+.sidebar__main_options,
+.sidebar__about {
+    font-size: 2.2rem;
+    position: relative;
+    padding-left: 4vw;
+}
+
+.sidebar__home {
+    list-style-image: url(../images/house.svg);
+
+    
+}
+
+.sidebar__main_options::marker {
+        /* font-size: 5rem; */
+}
+ 
+body {
+    max-height: 100vh;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template: 3fr 14fr / 3fr 11fr;
+
+}
+
+#sidebar {
+    background-color: #006D77;
+    grid-row: 1 / 3;
+}
+
+#header {
+    background-color: #FFDDD2;
+}
+
+#main-content {
+    background-color: #EDF6F9;
+}
