@@ -70,7 +70,7 @@ body {
     justify-content: space-between;
     font-size: 2.2rem;
     position: relative;
-    padding-left: 4.5vw;
+    padding-left: 6.2rem;
     margin-left: 1vw;
     list-style-type: none;
     /* border: 1px solid #ffffff; */
@@ -99,52 +99,77 @@ body {
     
 }
 
+.sidebar__main_options li:hover,
+.sidebar__about li:hover,
+#sidebar__header:hover {
+    cursor: pointer;
+    /* color: #FFDDD2; */
+
+    
+
+}
+
+.sidebar__main_options li::before:hover,
+.sidebar__about li::before:hover {
+    cursor: pointer;
+    /* fill: #FFDDD2; */
+    /* color: #FFDDD2; */
+
+
+}
+
 .sidebar__home::before {
     /* background: no-repeat url('../images/house.svg'); */
     content: url(../images/house.svg);
-    color: white;
+    /* color: white; */
 
 }
 
 .sidebar__profile::before {
     /* background: no-repeat url('../images/id-card.svg'); */
     content: url(../images/id-card.svg);
-    color: white;
+    /* color: white; */
+    
+
 }
 
 .sidebar__messages::before {
     content: url(../images/message.svg);
+    /* color: white; */
+
 }
 
 .sidebar__history::before {
     content: url(../images/clock.svg);
-    color: white;
+    /* color: white; */
 }
 
 .sidebar__tasks::before {
     content: url(../images/files.svg);
+    /* color: white; */
+
 }
 
 .sidebar__communities::before {
     content: url(../images/commumities.svg);
-    color: white;
+    /* color: white; */
 }
 
 .sidebar__settings::before {
     content: url(../images/gear.svg);
-    color: white;
+    /* color: white; */
 
 }
 
 .sidebar__support::before {
     content: url(../images/question.svg);
-    color: white;
+    /* color: white; */
 
 }
 
 .sidebar__privacy::before {
     content: url(../images/shield.svg);
-    color: white;
+    /* color: white; */
 
 }
 
