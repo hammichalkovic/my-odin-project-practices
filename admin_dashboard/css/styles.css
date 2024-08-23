@@ -34,6 +34,17 @@ html {
     
 }
 
+body {
+    height: 100vh;
+    /* height: 2048px; */
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template: 3fr 14fr / 3fr 11fr;
+
+}
+
 #sidebar,
 #header,
 .main-content__my_projects h2,
@@ -49,32 +60,91 @@ html {
 #sidebar__header {
     font-family: 'Catamaran Bold';
     font-size: 2.85rem;
+    margin-left: 1.9vw;
 }
 
 .sidebar__main_options,
 .sidebar__about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     font-size: 2.2rem;
     position: relative;
-    padding-left: 4vw;
+    padding-left: 4.5vw;
+    margin-left: 1vw;
+    list-style-type: none;
+    /* border: 1px solid #ffffff; */
 }
 
-.sidebar__home {
-    list-style-image: url(../images/house.svg);
+.sidebar__main_options {
+    margin-top: 4.5vh;
+    height: 27.7vh;
+}
 
+.sidebar__about {
+    margin-top: 6.2vh;
+    height: 13.3vh;
+}
+
+.sidebar__main_options li::before,
+.sidebar__about li::before {
+    /* content: ''; */
+    display: block;
+    position: absolute;
+    left: 1vw;
+    margin-top: 0.3rem;
+    box-sizing: border-box;
+    height: 2.5rem;
+    width: 2.5rem;
     
 }
 
-.sidebar__main_options::marker {
-        /* font-size: 5rem; */
+.sidebar__home::before {
+    /* background: no-repeat url('../images/house.svg'); */
+    content: url(../images/house.svg);
+    color: white;
+
 }
- 
-body {
-    max-height: 100vh;
-    max-width: 100vw;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template: 3fr 14fr / 3fr 11fr;
+
+.sidebar__profile::before {
+    /* background: no-repeat url('../images/id-card.svg'); */
+    content: url(../images/id-card.svg);
+    color: white;
+}
+
+.sidebar__messages::before {
+    content: url(../images/message.svg);
+}
+
+.sidebar__history::before {
+    content: url(../images/clock.svg);
+    color: white;
+}
+
+.sidebar__tasks::before {
+    content: url(../images/files.svg);
+}
+
+.sidebar__communities::before {
+    content: url(../images/commumities.svg);
+    color: white;
+}
+
+.sidebar__settings::before {
+    content: url(../images/gear.svg);
+    color: white;
+
+}
+
+.sidebar__support::before {
+    content: url(../images/question.svg);
+    color: white;
+
+}
+
+.sidebar__privacy::before {
+    content: url(../images/shield.svg);
+    color: white;
 
 }
 
