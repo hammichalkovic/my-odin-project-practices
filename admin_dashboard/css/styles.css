@@ -101,7 +101,9 @@ body {
 
 .sidebar__main_options li:hover,
 .sidebar__about li:hover,
-#sidebar__header:hover {
+#sidebar__header:hover,
+.header__options > div:hover,
+.header__search > button:hover {
     cursor: pointer;
     /* color: #FFDDD2; */
 
@@ -173,7 +175,11 @@ body {
 
 }
 
-
+/* #sidebar,
+#header,
+#main-content {
+    
+} */
 
 #sidebar {
     background-color: #006D77;
@@ -183,16 +189,16 @@ body {
 #header {
     display: grid;
     background-color: white;
-    grid-template: 1fr 1fr / 5fr 3fr;
+    grid-template: 3fr 4fr / 5fr 3fr;
 }
 
 #header > div {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .header__search {
     appearance: none;
-    border: 2px solid salmon;
+    /* border: 2px solid salmon; */
 }
 
 #main-content {
@@ -205,3 +211,118 @@ body {
     grid-area: 1 / 1 / 3 / 3;
 }
 
+
+.header__options,
+.header__account_settings,
+.header__search {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.header__options {
+    padding:0 4.4vw 0 0.1vw;
+    justify-content: space-between;
+}
+
+.header__account_settings {
+    justify-content: center;
+    margin-right: 2vw;
+}
+
+.header__search {
+    justify-content: center;
+}
+
+.header__options > div {
+    height: 3.9vh;
+    width: 7.15vw;
+    background-color: #006D77;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4vw;
+    font-family: 'Catamaran Semibold';
+    color: white;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    padding-top: 0.25vh;
+}
+
+.header__account_settings > div {
+    margin: 0 1vw; 
+}
+
+.header__options > div:hover {
+    background-color: #FFDDD2;
+}
+
+.notify {
+    /* border: 1px solid black; */
+    height: 2.4rem;
+    width: 2.4rem;
+    background: no-repeat url(../images/bell.svg);
+    
+}
+
+.pic {
+    height: 4.5rem;
+    width: 4.5rem;
+    /* border: 1px solid black; */
+    border-radius: 100%;
+    background: no-repeat top/150% url(../images/mouse.jpeg) ;
+}
+
+.name {
+    font-family: 'Catamaran Bold';
+    font-size: 1.7rem;
+}
+
+.header__search > button {
+    appearance: none;
+    border: 1px solid transparent;
+    height: 3rem;
+    width: 3rem;
+    margin-right: 1vw;
+    background: no-repeat center/70% url(../images/search.svg);
+}
+
+#search {
+    /* appearance: none; */
+    box-sizing: border-box;
+    font-size: inherit;
+    border: 1px solid transparent;
+    border-radius: 10vw;
+    background-color: #FFDDD2;
+    height: 3vh;
+    width: 42vw;
+    padding: 0 1vw;
+    outline: none;
+}
+
+#search::-webkit-search-cancel-button {
+    appearance: none;
+}
+
+
+.header__about_user {
+    display: flex;
+    font-family: 'Catamaran Bold';
+    font-size: 1.4rem;
+    letter-spacing: 0.05rem;
+    line-height: 2.8rem;
+    align-items: center;
+}
+
+.current_account {
+    font-size: 2.5rem;
+}
+
+.about_user__pic {
+    /* border: 1px solid salmon; */
+    height: 6.8rem;
+    width: 6.8rem;
+    border-radius: 100%;
+    background: no-repeat top/150% url(../images/mouse.jpeg);
+    margin:0 1.7vw 0 2.5vw;
+}
