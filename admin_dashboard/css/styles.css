@@ -288,12 +288,15 @@ main {
 }
 
 .announcement_item {
-    padding: 2.2vw
+    padding: 2.2vw;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 .announcement_item > div {
     margin: 0;
     padding: 0;
+    
 }
 
 
@@ -367,8 +370,13 @@ main {
     content: 'My Projects';
     position: absolute;
     top: -3.9vh;
+    left: 0;
     font-family: 'Catamaran Semibold';
     font-size: 2rem;
+}
+
+.item1::before {
+    left: -0.7vw;
 }
 
 .item3::before {
@@ -492,4 +500,41 @@ main {
     border-radius: 100%;
     background: no-repeat top/150% url(../images/mouse.jpeg);
     margin:0 1.7vw 0 2.5vw;
+}
+
+.trend_icon {
+    /* border: 1px solid black; */
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 100%;
+}
+
+.main-content__trending {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.9vh 0 1.5vh 1.5vw;
+}
+
+.main-content__trending > div {
+    display: flex;
+    align-items: center;
+    font-family: 'Catamaran Regular';
+    font-size: 1.4rem;
+    width: 14vw;
+}
+
+.main-content__trending > div > div:last-child {
+    padding-left: 1.3vw;
+}
+
+.main-content__trending > div > div > p:last-child {
+    color: rgb(126, 124, 124);
+    margin-top: -0.5rem;
+
+}
+
+.main-content__trending > div > div > p:first-child {
+    margin-bottom: -0.5rem;
 }
