@@ -281,10 +281,45 @@ main {
 }
 
 .project_item > p {
-    color: rgb(82, 82, 82);
+    color: rgb(126, 124, 124);
     font-size: 1.6rem;
     line-height: 1.9rem;
     margin-top: 0;
+}
+
+.announcement_item {
+    padding: 2.2vw
+}
+
+.announcement_item > div {
+    margin: 0;
+    padding: 0;
+}
+
+
+.announcement_item p {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.announcement_item h3 {
+    font-size: 1.4rem;
+    margin: 0 0 -0.1rem 0;
+}
+
+.announcement_item div:nth-child(3) h3,
+.announcement_item div:nth-child(5) h3{
+    margin-top: 1.4rem;
+}
+
+.announcement_item p {
+    font-family: 'Catamaran Regular';
+    color: rgb(126, 124, 124);
+    font-size: 1.3rem;
+    margin-top: 0;
+    line-height: 1.4rem;
 }
 
 #main-content > div {
