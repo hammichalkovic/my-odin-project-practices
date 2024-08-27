@@ -35,13 +35,18 @@ html {
 }
 
 body {
-    height: 100vh;
     /* height: 2048px; */
-    width: 100vw;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    
+    height: 100vh;
+    width: 100vw;
     display: grid;
-    grid-template: 2fr 9fr / 3fr 11fr;
+    grid-template: 17.5% 82.5% / 21.5% 78.5%;
 
 }
 
@@ -184,18 +189,20 @@ body {
 #sidebar {
     background-color: #006D77;
     grid-row: 1 / 3;
+    
 }
 
 #header {
+    grid-area: 1 / 2 / 2 / 3;
     display: grid;
     background-color: white;
     grid-template: 3fr 4fr / 5fr 3fr;
     padding: 0.5vh 0;
 }
 
-#header > div {
-    /* border: 1px solid black; */
-}
+/* #header > div {
+    border: 1px solid black;
+} */
 
 .header__search {
     appearance: none;
@@ -203,22 +210,139 @@ body {
 }
 
 #main-content {
+    grid-area: 2 / 2 / 3 / 3;
     margin: 0;
-    padding: 0;
+    padding: 6.9vh 2.4vw 6.9vh 1.5vw;
     background-color: #FFDDD2;
     display: grid;
-    place-content: center;
-    grid-template: repeat(6, 1fr) / 1fr 1fr 1fr;
-    gap: 1.8rem 1.5rem;
+    grid-template: repeat(6, 1fr) / 1fr 1fr 25.5%;
+    gap: 2.9rem 1.58vw;
+    grid-template-areas: 'i1 i2 ann'
+                         'i1 i2 ann'
+                         'i4 i5 ann'
+                         'i4 i5 tr'
+                         'i7 i8 tr'
+                         'i7 i8 tr';
+}
+
+.item1 {
+    grid-area: i1;
+    position: relative;
+}
+
+
+
+.item2 {
+    grid-area: i2;
+}
+
+.item3 {
+    grid-area: ann;
+    margin-bottom: 1.5vh;
+    position: relative;
+}
+
+.item4 {
+    grid-area: i4;
+}
+
+.item5 {
+    grid-area: i5;
+}
+
+.item6 {
+    grid-area: tr;
+    margin-top: 2.6vh;
+    position: relative;
+}
+
+.item7 {
+    grid-area: i7;
+}
+
+.item8 {
+    grid-area: i8;
+}
+
+.project_item {
+    border-left: 0.9rem solid #006D77;
+    font-family: 'Catamaran Regular';
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+    padding: 1.5vh;
+}
+
+.project_item > h2 {
+    font-family: 'Catamaran Semibold';
+    font-size: 1.8rem;
+    margin-bottom: -0.3rem;
+}
+
+.project_item > p {
+    color: rgb(82, 82, 82);
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    margin-top: 0;
 }
 
 #main-content > div {
     background-color: white;
-    border-radius: 1.2rem;
+    border-radius: 0.9rem;
 }
 
+.share_options {
+    /* border: 1px dotted black; */
+    width: 9.1vw;
+    height: 3vh;
+    align-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 2vh;
+    right: 1.8vw;
+}
 
+.share_options > div {
+    /* border: 1px solid red; */
+    height: 3rem;
+    width: 3rem;
+}
 
+.share_options > div:nth-child(1) {
+    background: no-repeat center/80% url(../images/star_add.svg);
+    /* background-color: black; */
+}
+
+.share_options > div:nth-child(2) {
+    background: no-repeat center/80% url(../images/add-eye.svg);
+    /* background-color: black; */
+}
+
+.share_options > div:nth-child(3) {
+    background: no-repeat center/80% url(../images/fork.svg);
+    /* background-color: black; */
+}
+
+.item1::before,
+.item3::before,
+.item6::before {
+    content: 'My Projects';
+    position: absolute;
+    top: -3.9vh;
+    font-family: 'Catamaran Semibold';
+    font-size: 2rem;
+}
+
+.item3::before {
+    content: 'Announcements';
+}
+
+.item6::before {
+    content: 'Trending';
+}
 
 .header__options,
 .header__account_settings,
