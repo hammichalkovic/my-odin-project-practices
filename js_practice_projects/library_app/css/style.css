@@ -33,7 +33,7 @@ h1 {
     display: block;
 }
 
-label, p, .library_info {
+label, p, .library_info, button {
     font-family: 'Comfortaa Regular';
 }
 
@@ -49,7 +49,8 @@ label, p, .library_info {
     display: none;
 }
 
-.library_value {
+.library_value,
+button {
     font-weight: 700;
 }
 
@@ -59,7 +60,7 @@ label {
     
 }
 
-input {
+input, button {
     border: 2px solid black;
     border-radius: 2vh;
     margin-left: 0.5vw;
@@ -85,7 +86,7 @@ p {
     grid-template: repeat(3, 1fr) / repeat(6, 1fr);
     grid-template-areas: 'tl tl tl tl tl tl' 
                          'at at at at at at' 
-                         'pg pg rd rd rd rd'; 
+                         'pg pg rd rd rd btn'; 
     
     justify-items: center;
 }
@@ -121,7 +122,7 @@ p {
 }
 
 #read {
-    width: 12vw;
+    width: 5vw;
 }
 
 #title,
@@ -130,7 +131,20 @@ p {
 }
 
 
+button {
+    grid-area: btn;
+    appearance: none;
+    background-color: black;
+    margin-left: 0;
+    height: 21px;
+    width: 5vw;
+    color: white;
+}
 
+button:active {
+    color: black;
+    background-color: white;
+}
 
 
 
