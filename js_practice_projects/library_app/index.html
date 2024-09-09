@@ -14,18 +14,30 @@
        <p>Input data of your book to put it into library!</p>
      </div>
      <form action="" method="post" id="create_book">
-       <label for="author">Author:
-        <input type="text" id="author" name="author" >
-       </label>
-       <label for="title">Title:
-        <input type="text" id="title" name="title" >
-       </label>
-       <label id="pages_label" for="pages">Pages:
-        <input type="number" id="pages" name="pages">
-       </label>
-       <label id="read_label" for="read">Have you read it? :
-        <input type="text" id="read" name="read">
-       </label>
+        
+         <div id="title_item">
+           <label id="title_label" for="title">Title:</label>
+           <input type="text" id="title" name="title">
+         </div>
+        
+
+         <div id="author_item">
+           <label id="author_label" for="author">Author:</label>
+           <input type="text" id="author" name="author">
+         </div>
+        
+         
+         <div id="pages_item">
+           <label id="pages_label" for="pages">Pages:</label>
+           <input type="number" id="pages" name="pages">
+         </div>
+        
+       
+         <div id="read_item">
+           <label id="read_label" for="read">Have you read it?:</label>
+           <input type="text" id="read" name="read">
+         </div>
+        
        
      </form>
      <main id="library">
