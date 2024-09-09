@@ -33,10 +33,24 @@ h1 {
     display: block;
 }
 
-label, p {
+label, p, .library_info {
     font-family: 'Comfortaa Regular';
+}
 
-    
+.library__item {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.library_value {
+    font-weight: 700;
 }
 
 label { 
@@ -64,6 +78,7 @@ p {
     margin-bottom: 2vh;
     /* border: 2px solid salmon; */
     min-width: 464px;
+    min-height: 77px;
     width: 40vw;
     height: 10vh;
     display: grid;
