@@ -17,29 +17,29 @@
         
          <div id="title_item" class="create_book_widget">
            <label id="title_label" for="title">Title:</label>
-           <input minlength="4" maxlength="30" type="text" id="title" name="title">
-           <span class="errormessage">Message</span>
+           <input minlength="4" maxlength="40" type="text" id="title" name="title">
+           <span class="errormessage"></span>
          </div>
         
 
          <div id="author_item" class="create_book__widget">
            <label id="author_label" for="author">Author:</label>
-           <input minlength="3" maxlength="20" type="text" id="author" name="author">
-           <span class="errormessage">Message</span>
+           <input minlength="3" maxlength="40" type="text" id="author" name="author">
+           <span class="errormessage"></span>
          </div>
         
          
          <div id="pages_item" class="create_book_widget">
            <label id="pages_label" for="pages">Pages:</label>
-           <input type="number" min="1" minlength="1" maxlength="5" id="pages" name="pages">
-           <span class="errormessage">Message</span>
+           <input type="number" min="1" max="99999" id="pages" name="pages">
+           <span class="errormessage"></span>
          </div>
         
        
          <div id="read_item" class="create_book_widget">
            <label id="read_label" for="read">Have you read it?:</label>
            <input type="text" minlength="2" maxlength="3" pattern="[Yy][Ee][Ss]|[Nn][Oo]" id="read" name="read">
-           <span class="errormessage">Message</span>
+           <span class="errormessage"></span>
          </div>
         
         <button form="create_book" id="add" type="button">Add</button>
