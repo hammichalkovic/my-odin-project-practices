@@ -33,7 +33,7 @@ h1 {
     display: block;
 }
 
-label, p, .library_info, button {
+label, p, .library_info, button, .errormessage {
     font-family: 'Comfortaa Regular';
 }
 
@@ -77,6 +77,42 @@ p {
     padding: 0;
     margin-left: 3vw;
     display: block;
+}
+
+.create_book__widget {
+    position: relative;
+}
+
+.errormessage {
+    display: block;
+    /* border: 1px solid salmon; */
+    width: 25vw;
+    height: 2vh;
+    position: relative;
+    font-size: 1.5vh;
+    color: #e76f51;  
+    font-style: italic;
+    top: 0.2vh;
+}
+#title_item > .errormessage {
+    left: 55px; 
+}
+
+#author_item > .errormessage {
+    left: 74px;
+}
+
+#pages_item > .errormessage,
+#read_item > .errormessage {
+    width: 5vw;
+}
+
+#pages_item > .errormessage {
+    left: 65px;
+}
+
+#read_item > .errormessage {
+    left: 145px;
 }
 
 #create_book {
