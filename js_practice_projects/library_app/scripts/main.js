@@ -5,7 +5,8 @@ let libraryBank = document.getElementById('library'),
     sample = document.querySelector('.sample'),
     titleVal = title.value,
     inputs = document.querySelectorAll('input'),
-    btn = document.getElementById('add');
+    btn = document.getElementById('add'),
+    form = document.getElementById('create_book');
 
     sample.classList.add('nodisplay');
 
@@ -44,14 +45,19 @@ function addBookToLibrary() {
 }
 
 btn.addEventListener('click', () => {
+
+    // if ()
+    
+    libraryBank.appendChild(libraryItem.cloneNode(true));
     myLibrary.push(new Book(title.value, author.value, pages.value, read.value));
+    console.log(myLibrary);
 
     for (let i = 0; i < myLibrary.length; i++) {
-        libraryBank.appendChild(libraryItem.cloneNode(true));
-        libraryBankChildren[i].children[0].firstElementChild = myLibrary[i].title;
-        libraryBankChildren[i].children[1].firstElementChild = myLibrary[i].author;
-        libraryBankChildren[i].children[2].firstElementChild = myLibrary[i].pages;
-        libraryBankChildren[i].children[3].firstElementChild = myLibrary[i].read;
+        
+        libraryBankChildren[i].children[0].firstElementChild.textContent += myLibrary[i].title;
+        libraryBankChildren[i].children[1].firstElementChild.textContent += myLibrary[i].author;
+        libraryBankChildren[i].children[2].firstElementChild.textContent += myLibrary[i].pages;
+        libraryBankChildren[i].children[3].firstElementChild.textContent += myLibrary[i].read;
     }
 
     toCleanValues();
