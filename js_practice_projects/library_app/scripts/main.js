@@ -7,7 +7,9 @@ let libraryBank = document.getElementById('library'),
     inputs = document.querySelectorAll('input'),
     btn = document.getElementById('add'),
     form = document.getElementById('create_book'),
-    remove = document.querySelector('.remove_button');
+    remove = document.querySelector('.remove_button'),
+    removeBtns,
+    removeBtnsToOperate = [];
 
     sample.classList.add('nodisplay');
 
@@ -88,8 +90,14 @@ pages.addEventListener('input', toCheckPages);
 read.addEventListener('focusin', toCheckReading);
 read.addEventListener('input', toCheckReading);
 
+function addClass(item) {
+    item.parentElement.classList.add('toremove');
+}
+
 
 btn.addEventListener('click', (event) => {
+
+    
 
     toCheckTitle();
     toCheckAuthor();
@@ -116,9 +124,34 @@ btn.addEventListener('click', (event) => {
     toCleanValues();
     }
     
+    removeBtns = [...document.querySelectorAll('.remove_button')];
+    removeBtnsToOperate = removeBtns.slice(0, removeBtns.length - 1);
+    
+    removeBtns.forEach(item => {
+        item.addEventListener('click', (e) => {
+            addClass(e.target);
+           
+            removeBtnsToOperate = removeBtns.map(item => item.parentElement).filter(item => item.classList.contains('toremove'));
+    let itemToRemove = removeBtnsToOperate[0];
+        libraryBank.removeChild(itemToRemove);
+        })
+
+        
+        
+    })
+    
+
     
 })
+
+// removeBtns.map(item => item.parentElement).filter(item => item.classList.contains('toremove'))[0].remove();
+
+// remove
 
 // function removeItem() {
 //     this.
 // }
+
+
+
+
