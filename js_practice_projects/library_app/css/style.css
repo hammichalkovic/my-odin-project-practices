@@ -40,15 +40,23 @@ label, p, .library_info, button, .errormessage {
 
 .library_value {
     margin-left: 0.5vw;
+
 }
 
+/* .title_val,
+.author_val {
+    font-family: 'Alex Brush Regular';
+} */
+
 .library__item {
+    font-size: 1.2rem;
     box-sizing: border-box;
-    padding: 0.5rem;
+    padding: 0.5rem ;
     border-radius: 2vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    position: relative;
 }
 
 .nodisplay {
@@ -63,13 +71,12 @@ button {
 label { 
     font-weight: 700;
     max-width: 30vw;
+    /* border: 1px solid salmon; */
+    
     
 }
 
-input {
-    outline: none;
 
-}
 
 input:invalid {
     border-color: #e76f51;
@@ -79,12 +86,15 @@ input:valid {
     border-color: black;
 }
 
-input, button {
+input, button, 
+.remove_button {
     border: 2px solid black;
     border-radius: 2vh;
     margin-left: 0.5vw;
     min-width: 1vw;
 }
+
+
 
 p {
     
@@ -106,7 +116,7 @@ p {
     font-size: 0.8rem;
     color: #e76f51;  
     font-style: italic;
-    top: 0.2vh;
+    top: -0.05vw;
 }
 #title_item > .errormessage {
     left: 5vw; 
@@ -144,15 +154,36 @@ p {
                          'pg pg rd rd rd btn'; 
     
     justify-items: center;
+    align-items: center;
+    position: relative;
+
 }
 
+#title_item,
+#author_item,
+#pages_item,
+#read_item {
+    position: relative;
+}
 
+label {
+    outline: none;
+    position: relative;
+    bottom: 0.1vw;
+}
+
+input {
+    outline: none;
+
+    position: relative;
+    bottom: 0.2vw;  
+}
 
 #title_item {
     /* grid-area: tl; */
     grid-area: tl;
     /* justify-self: center; */
-
+    
 }
 
 
@@ -164,16 +195,25 @@ p {
 
 
 #pages_item {
+    justify-content: center;
     grid-area: pg;
 }
 
 
 #read_item {
     grid-area: rd;
+    align-self: center;
+
 }
 
 #pages {
     width: 5vw;
+}
+
+#pages::-webkit-outer-spin-button,
+#pages::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
 }
 
 #read {
@@ -191,9 +231,12 @@ button {
     appearance: none;
     background-color: black;
     margin-left: 0;
-    height: 21px;
+    height: 4vh;
     width: 5vw;
     color: white;
+    position: absolute;
+    bottom: 0.5vw;
+    align-self: center;
 }
 
 button:active {
@@ -225,4 +268,31 @@ button:active {
 
 #library > div {
     border:  3px solid black;
+}
+
+/* .library_info {
+
+} */
+
+.remove_button {
+    
+    font-weight: 900;
+    font-size: 0.75rem;
+  
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-end;
+    display: block;
+    position: absolute;
+    bottom: 80%;
+    right: 2.5%;
+
+    
+    /* margin-bottom: 50vh; */
+}
+
+.library_title {
+    width: 80%;
+    /* border: 1px solid salmon; */
+    overflow-wrap: break-word;
 }

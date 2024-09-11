@@ -6,7 +6,8 @@ let libraryBank = document.getElementById('library'),
     titleVal = title.value,
     inputs = document.querySelectorAll('input'),
     btn = document.getElementById('add'),
-    form = document.getElementById('create_book');
+    form = document.getElementById('create_book'),
+    remove = document.querySelector('.remove_button');
 
     sample.classList.add('nodisplay');
 
@@ -100,31 +101,24 @@ btn.addEventListener('click', (event) => {
     } else {
         
     libraryBank.appendChild(libraryItem.cloneNode(true));
+    // myLibrary.firstElementChild.appendChild(remove);
     myLibrary.push(new Book(title.value, author.value, pages.value, read.value));
     // console.log(myLibrary);
 
-    // for (let i = 0; i < myLibrary.length; i++) {
+    
         
         libraryBankChildren[myLibrary.length - 1].children[0].firstElementChild.textContent += myLibrary[myLibrary.length - 1].title;
         libraryBankChildren[myLibrary.length - 1].children[1].firstElementChild.textContent += myLibrary[myLibrary.length - 1].author;
         libraryBankChildren[myLibrary.length - 1].children[2].firstElementChild.textContent += myLibrary[myLibrary.length - 1].pages;
         libraryBankChildren[myLibrary.length - 1].children[3].firstElementChild.textContent += myLibrary[myLibrary.length - 1].read.toUpperCase();
-    // }
+   
 
     toCleanValues();
     }
     
-    // libraryBank.appendChild(libraryItem.cloneNode(true));
-    // myLibrary.push(new Book(title.value, author.value, pages.value, read.value));
-    // console.log(myLibrary);
-
-    // // for (let i = 0; i < myLibrary.length; i++) {
-        
-    //     libraryBankChildren[myLibrary.length - 1].children[0].firstElementChild.textContent += myLibrary[myLibrary.length - 1].title;
-    //     libraryBankChildren[myLibrary.length - 1].children[1].firstElementChild.textContent += myLibrary[myLibrary.length - 1].author;
-    //     libraryBankChildren[myLibrary.length - 1].children[2].firstElementChild.textContent += myLibrary[myLibrary.length - 1].pages;
-    //     libraryBankChildren[myLibrary.length - 1].children[3].firstElementChild.textContent += myLibrary[myLibrary.length - 1].read.toUpperCase();
-    // // }
-
-    // toCleanValues();
+    
 })
+
+// function removeItem() {
+//     this.
+// }
