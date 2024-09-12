@@ -131,9 +131,9 @@ btn.addEventListener('click', (event) => {
         item.addEventListener('click', (e) => {
             addClass(e.target);
            
-            removeBtnsToOperate = removeBtns.map(item => item.parentElement).filter(item => item.classList.contains('toremove'));
-    let itemToRemove = removeBtnsToOperate[0];
-        libraryBank.removeChild(itemToRemove);
+    //         removeBtnsToOperate = removeBtns.map(item => item.parentElement).filter(item => item.classList.contains('toremove'));
+    // let itemToRemove = removeBtnsToOperate[0];
+    //     libraryBank.removeChild(itemToRemove);
         })
 
         
