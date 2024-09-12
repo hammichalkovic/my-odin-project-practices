@@ -8,8 +8,10 @@ let libraryBank = document.getElementById('library'),
     btn = document.getElementById('add'),
     form = document.getElementById('create_book'),
     remove = document.querySelector('.remove_button'),
-    removeBtns,
-    removeBtnsToOperate = [];
+    removeBtns = [],
+    removeBtnsToOperate = [],
+    removeElements = [],
+    elementsToRemove = [];
 
     sample.classList.add('nodisplay');
 
@@ -124,25 +126,76 @@ btn.addEventListener('click', (event) => {
     toCleanValues();
     }
     
+    
     removeBtns = [...document.querySelectorAll('.remove_button')];
     removeBtnsToOperate = removeBtns.slice(0, removeBtns.length - 1);
+    removeElements = [...document.querySelectorAll('.library__item')];
+    elementsToRemove = removeElements.slice(0, removeElements.length - 1);
     
-    removeBtns.forEach(item => {
+    // removeBtnsToOperate.forEach(item => {
+        for (let item of removeBtnsToOperate) {
+        
+
         item.addEventListener('click', (e) => {
             addClass(e.target);
-           
-    //         removeBtnsToOperate = removeBtns.map(item => item.parentElement).filter(item => item.classList.contains('toremove'));
-    // let itemToRemove = removeBtnsToOperate[0];
-    //     libraryBank.removeChild(itemToRemove);
-        })
+
+            for (let i = 0; i < myLibrary.length; i++) {
+                if (libraryBank.children[i].classList.contains('toremove')) {
+                console.log(myLibrary);
+                console.log(elementsToRemove);
+                console.log(removeBtnsToOperate);
+                
+                // let number = removeBtnsToOperate.indexOf(e.target);
+                // console.log(number);
+    
+                elementsToRemove.splice(i, 1);
+                removeBtnsToOperate.splice(i, 1);
+                myLibrary.splice(i, 1);
+                libraryBank.children[i].remove();
+    
+                console.log(myLibrary);
+                console.log(elementsToRemove);
+                console.log(removeBtnsToOperate)
+                }
+            };
+        });  
 
         
         
-    })
+        }
+
+        // for (let i = 0; i < myLibrary.length; i++) {
+        //     if (libraryBank.children[i].classList.contains('toremove')) {
+        //     console.log(myLibrary);
+        //     console.log(elementsToRemove);
+        //     console.log(removeBtnsToOperate);
+            
+        //     // let number = removeBtnsToOperate.indexOf(e.target);
+        //     // console.log(number);
+
+        //     elementsToRemove.splice(i, 1);
+        //     removeBtnsToOperate.splice(i, 1);
+        //     myLibrary.splice(i, 1);
+        //     libraryBank.children[i].remove();
+
+        //     console.log(myLibrary);
+        //     console.log(elementsToRemove);
+        //     console.log(removeBtnsToOperate)
+        //     }
+        // };
+            
+
+        
+        
     
 
     
+
 })
+
+
+
+
 
 // removeBtns.map(item => item.parentElement).filter(item => item.classList.contains('toremove'))[0].remove();
 
