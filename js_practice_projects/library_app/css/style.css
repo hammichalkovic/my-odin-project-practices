@@ -119,6 +119,12 @@ p {
     font-style: italic;
     top: -0.05vw;
 }
+
+#pages, #read {
+    padding-left: 0.65vw;
+    min-width: 66px;
+}
+
 #title_item > .errormessage {
     left: 5vw; 
 }
@@ -142,7 +148,7 @@ p {
 
 #create_book {
     box-sizing: border-box;
-    margin-bottom: 4vh;
+    margin-bottom: 7vh;
     /* border: 2px solid salmon; */
     min-width: 464px;
     min-height: 77px;
@@ -180,6 +186,8 @@ input {
     box-sizing: border-box;
     padding-left: 1vw;  
     font-family: 'Comfortaa Regular';
+    font-size: 1.2rem;
+    height: 2rem;
 }
 
 #title_item {
@@ -228,6 +236,12 @@ margin: 0;
     width: 33vw
 }
 
+.library_author {
+    /* border: 1px solid salmon; */
+    width: 99%;
+    overflow-wrap: break-word;
+}
+
 
 button {
     grid-area: btn;
@@ -267,10 +281,12 @@ button:hover {
     padding: 1vw;
     border: 4px solid black;
     width: 90vw;
-    height: 65vh;
+    min-height: 50vh;
+    height: auto;
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(5, 1fr);
+    grid-template: repeat(auto-fill, 170px) / repeat(auto-fill, minmax(310px, 1fr));
     gap: 1vw;
+    grid-auto-rows: 170px;
 }
 
 #library > div {
@@ -302,6 +318,8 @@ button:hover {
 
 #add {
     min-width: 46px;
+    position: relative;
+    margin-bottom: 0.9vh;
 }
 
 .read_toggle {
@@ -320,4 +338,106 @@ button:hover {
     width: 80%;
     /* border: 1px solid salmon; */
     overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 620px) {
+
+    html {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .lead {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-top: -0.5vw;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    #title,
+    #author {
+        width: 70vw;
+        padding-left: 3vw;
+    }
+
+    #title_item > .errormessage,
+    #author_item > .errormessage {
+        left: 10vw;
+    }
+
+    #read,
+    #pages {
+        width: 20vw;
+        padding-left: 3vw;
+    }
+
+    #pages_item,
+    #read_item {
+        margin-left: -10vw;
+    }
+
+    #pages_item > .errormessage {
+        left: 12vw;
+    }
+
+    #pages_item > .errormessage,
+    #read_item > .errormessage {
+        width: 70vw;
+    }
+
+    #read_item > .errormessage {
+        left: 30vw;
+    }
+
+    #create_book {
+        /* place-self: center; */
+        box-sizing: border-box;
+        row-gap: 12px;
+        margin-bottom: 5vh;
+        /* border: 2px solid salmon; */
+        min-width: 464px;
+        min-height: 77px;
+        width: 40vw;
+        height: 30vh;
+        display: grid;
+        grid-template: repeat(5, 1fr) / repeat(6, 1fr);
+        grid-template-areas: 'tl tl tl tl tl tl' 
+                             'at at at at at at' 
+                             'rd rd rd rd rd rd'
+                             'pg pg pg pg pg pg'
+                             '.  . btn btn . .'; 
+    }
+
+    #add {
+        width: 100%;
+    }
+
+    .read_toggle {
+        margin-bottom: 0.7vw;
+    }
+
+    #library {
+        min-width: 370px;
+        margin-left: 9vw;
+    }
 }
