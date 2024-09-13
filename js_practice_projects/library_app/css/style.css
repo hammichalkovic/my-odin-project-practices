@@ -312,6 +312,10 @@ button:hover {
     font-size: 0.75rem;
 }
 
+.read_toggle_disable {
+    display: none;
+}
+
 .library_title {
     width: 80%;
     /* border: 1px solid salmon; */

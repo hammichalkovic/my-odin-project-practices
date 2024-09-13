@@ -11,7 +11,8 @@ let libraryBank = document.getElementById('library'),
     removeBtns = [],
     removeBtnsToOperate = [],
     removeElements = [],
-    elementsToRemove = [];
+    elementsToRemove = [],
+    readToggleBtn = document.querySelector('.read_toggle');
 
     sample.classList.add('nodisplay');
 
@@ -96,6 +97,10 @@ function addClass(item) {
     item.parentElement.classList.add('toremove');
 }
 
+function markAsRead(item) {
+    item.classList.add('read');
+} 
+
 
 btn.addEventListener('click', (event) => {
 
@@ -122,6 +127,9 @@ btn.addEventListener('click', (event) => {
         libraryBankChildren[myLibrary.length - 1].children[2].firstElementChild.textContent += myLibrary[myLibrary.length - 1].pages;
         libraryBankChildren[myLibrary.length - 1].children[3].firstElementChild.textContent += myLibrary[myLibrary.length - 1].read.toUpperCase();
    
+        if (myLibrary[myLibrary.length - 1].read.toUpperCase() == 'YES') {
+            libraryBankChildren[myLibrary.length - 1].children[3].lastElementChild.classList.add('read_toggle_disable');
+        }
 
     toCleanValues();
     }
@@ -129,8 +137,12 @@ btn.addEventListener('click', (event) => {
     
     removeBtns = [...document.querySelectorAll('.remove_button')];
     removeBtnsToOperate = removeBtns.slice(0, removeBtns.length - 1);
+
     removeElements = [...document.querySelectorAll('.library__item')];
     elementsToRemove = removeElements.slice(0, removeElements.length - 1);
+
+    readToggleBtns = [...document.querySelectorAll('.read_toggle')];
+    readToggleBtnsToOperate = readToggleBtns.slice(0, readToggleBtns.length - 1);
     
     // removeBtnsToOperate.forEach(item => {
         for (let item of removeBtnsToOperate) {
@@ -141,9 +153,9 @@ btn.addEventListener('click', (event) => {
 
             for (let i = 0; i < myLibrary.length; i++) {
                 if (libraryBank.children[i].classList.contains('toremove')) {
-                console.log(myLibrary);
-                console.log(elementsToRemove);
-                console.log(removeBtnsToOperate);
+                // console.log(myLibrary);
+                // console.log(elementsToRemove);
+                // console.log(removeBtnsToOperate);
                 
                 // let number = removeBtnsToOperate.indexOf(e.target);
                 // console.log(number);
@@ -153,9 +165,9 @@ btn.addEventListener('click', (event) => {
                 myLibrary.splice(i, 1);
                 libraryBank.children[i].remove();
     
-                console.log(myLibrary);
-                console.log(elementsToRemove);
-                console.log(removeBtnsToOperate)
+                // console.log(myLibrary);
+                // console.log(elementsToRemove);
+                // console.log(removeBtnsToOperate)
                 }
             };
         });  
@@ -164,27 +176,23 @@ btn.addEventListener('click', (event) => {
         
         }
 
-        // for (let i = 0; i < myLibrary.length; i++) {
-        //     if (libraryBank.children[i].classList.contains('toremove')) {
-        //     console.log(myLibrary);
-        //     console.log(elementsToRemove);
-        //     console.log(removeBtnsToOperate);
-            
-        //     // let number = removeBtnsToOperate.indexOf(e.target);
-        //     // console.log(number);
+        
+        for (let button of readToggleBtnsToOperate) {
+            button.addEventListener('click', (e) => {
+                markAsRead(e.target);
 
-        //     elementsToRemove.splice(i, 1);
-        //     removeBtnsToOperate.splice(i, 1);
-        //     myLibrary.splice(i, 1);
-        //     libraryBank.children[i].remove();
+                for (let j = 0; j < myLibrary.length; j++) {
+                    if (readToggleBtnsToOperate[j].classList.contains('read')) {
+                        readToggleBtnsToOperate[j].previousElementSibling.textContent = 'YES';
+                        myLibrary[j].read = 'YES'
+                        readToggleBtnsToOperate[j].classList.add('read_toggle_disable');
 
-        //     console.log(myLibrary);
-        //     console.log(elementsToRemove);
-        //     console.log(removeBtnsToOperate)
-        //     }
-        // };
-            
-
+                        console.log(myLibrary[j]);
+                    }
+                }
+            })
+        }
+        
         
         
     
