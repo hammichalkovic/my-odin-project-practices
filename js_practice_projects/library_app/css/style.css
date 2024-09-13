@@ -175,9 +175,11 @@ label {
 
 input {
     outline: none;
-
     position: relative;
-    bottom: 0.2vw;  
+    bottom: 0.2vw;
+    box-sizing: border-box;
+    padding-left: 1vw;  
+    font-family: 'Comfortaa Regular';
 }
 
 #title_item {
@@ -300,6 +302,14 @@ button:hover {
 
 #add {
     min-width: 46px;
+}
+
+.read_toggle {
+    height: 2rem;
+    position: absolute;
+    right: 2%;
+    min-width: 90px;
+    font-size: 0.75rem;
 }
 
 .library_title {
