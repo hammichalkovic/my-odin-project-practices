@@ -359,7 +359,12 @@ button:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-left: 10vw;
     } 
+
+    .lead > * {
+        text-align: center;
+    }
 
     h1 {
         font-size: 3rem;
@@ -372,6 +377,12 @@ button:hover {
 
     label {
         font-size: 1rem;
+        padding-right: 1vw;
+    }
+
+    #title_item,
+    #author_item {
+        overflow-wrap:        
     }
 
     #title,
@@ -413,11 +424,11 @@ button:hover {
         /* place-self: center; */
         box-sizing: border-box;
         row-gap: 12px;
-        margin-bottom: 5vh;
+        margin: 0 0 15vh 11.2vw;
         /* border: 2px solid salmon; */
         min-width: 464px;
         min-height: 77px;
-        width: 40vw;
+        width: 85vw;
         height: 30vh;
         display: grid;
         grid-template: repeat(5, 1fr) / repeat(6, 1fr);
@@ -438,6 +449,6 @@ button:hover {
 
     #library {
         min-width: 370px;
-        margin-left: 9vw;
+        margin: 0 0 5vh 14vw;
     }
 }
