@@ -397,8 +397,8 @@ button:hover {
     #title_item > .errormessage,
     #author_item > .errormessage {
         left: 50px;
-        /* border: 1px solid salmon; */
-        min-width: 97px;
+        border: 1px solid salmon;
+        min-width: 157px;
     }
 
     #author_item > .errormessage {
