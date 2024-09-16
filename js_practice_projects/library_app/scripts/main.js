@@ -156,6 +156,7 @@ btn.addEventListener('click', (event) => {
                 // console.log(myLibrary);
                 // console.log(elementsToRemove);
                 // console.log(removeBtnsToOperate);
+                // console.log(readToggleBtnsToOperate);
                 
                 // let number = removeBtnsToOperate.indexOf(e.target);
                 // console.log(number);
@@ -163,11 +164,14 @@ btn.addEventListener('click', (event) => {
                 elementsToRemove.splice(i, 1);
                 removeBtnsToOperate.splice(i, 1);
                 myLibrary.splice(i, 1);
+                readToggleBtnsToOperate.splice(i, 1);
                 libraryBank.children[i].remove();
     
                 // console.log(myLibrary);
                 // console.log(elementsToRemove);
-                // console.log(removeBtnsToOperate)
+                // console.log(removeBtnsToOperate);
+                // console.log(readToggleBtnsToOperate);
+
                 }
             };
         });  
