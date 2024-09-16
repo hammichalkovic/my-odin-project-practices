@@ -417,6 +417,10 @@ button:hover {
         margin-left: -10vw;
     }
 
+    #read_item {
+        margin-bottom: 3vw;
+    }
+
     #pages_item > .errormessage {
         left: 57px;
         
@@ -437,10 +441,10 @@ button:hover {
         /* place-self: center; */
         box-sizing: border-box;
         row-gap: 12px;
-        margin: 0 0 15vh 0;
+        margin: 0 0 50px 0;
         /* border: 2px solid salmon; */
         min-width: 350px;
-        min-height: 77px;
+        min-height: 270px;
         width: 85vw;
         height: 30vh;
         display: grid;
@@ -453,9 +457,10 @@ button:hover {
     }
 
     #add {
+        min-height: 35px;
         width: 100%;
         margin-top: 2vh;
-        border-radius: 2vh;
+        border-radius: 3vh;
         
     }
 
