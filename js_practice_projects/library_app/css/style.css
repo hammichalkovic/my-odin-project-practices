@@ -394,7 +394,14 @@ button:hover {
 
     #title_item > .errormessage,
     #author_item > .errormessage {
-        left: 10vw;
+        left: 50px;
+        /* border: 1px solid salmon; */
+        min-width: 97px;
+    }
+
+    #author_item > .errormessage {
+        left: 70px;
+
     }
 
     #read,
@@ -409,16 +416,19 @@ button:hover {
     }
 
     #pages_item > .errormessage {
-        left: 12vw;
+        left: 57px;
+        
     }
 
     #pages_item > .errormessage,
     #read_item > .errormessage {
-        width: 70vw;
+        width: 20vw;
+        /* border: 1px solid salmon; */
+        min-width: 70px;
     }
 
     #read_item > .errormessage {
-        left: 30vw;
+        left: 135px;
     }
 
     #create_book {
@@ -442,6 +452,8 @@ button:hover {
 
     #add {
         width: 100%;
+        margin-top: 2vh;
+        border-radius: 2vh;
     }
 
     .read_toggle {
