@@ -12,15 +12,23 @@ function ticTacToeGame() {
 
 }
 
-function createGame(name1, name2) {
+function createGame() {
+    let playBtn = document.getElementById('play'),
+        inputPlayerName = document.getElementById('me'),
+        inputComputerName = document.getElementById('computer'),
+        displayPlayer = document.getElementById('my_name_for_game'),
+        displayComputer = document.getElementById('computer_name_for_game');
+
     let createPlayer = ticTacToeGame();
-    let player = createPlayer(name1),
-        computer = createPlayer(name2),
+    let player = createPlayer(inputPlayerName.value),
+        computer = createPlayer(inputComputerName.value),
         gameboard = [1, 2, 3,
                      4, 5, 6,
                      7, 8, 9];
 
-    let game = {player, computer, gameboard};    
+    let game = {player, computer, gameboard};  
+    
+    console.log(game);
 
     return function extractValues(playerNum) {
 
@@ -149,3 +157,7 @@ function createGame(name1, name2) {
     
 // }
 
+document.getElementById('play').addEventListener('click', (e) => {
+   let letsPlay = createGame();
+//    letsPlay();
+});
