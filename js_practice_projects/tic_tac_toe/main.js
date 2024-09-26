@@ -27,6 +27,11 @@ function createGame() {
                      7, 8, 9];
 
     let game = {player, computer, gameboard};  
+
+    displayPlayer.innerHTML = player.name;
+    displayComputer.innerHTML = computer.name;
+    inputPlayerName.value = '';
+    inputComputerName.value = '';
     
     console.log(game);
 
@@ -158,6 +163,53 @@ function createGame() {
 // }
 
 document.getElementById('play').addEventListener('click', (e) => {
+    let field1 = document.getElementById('1'),
+        field2 = document.getElementById('2'),
+        field3 = document.getElementById('3'),
+        field4 = document.getElementById('4'),
+        field5 = document.getElementById('5'),
+        field6 = document.getElementById('6'),
+        field7 = document.getElementById('7'),
+        field8 = document.getElementById('8'),
+        field9 = document.getElementById('9');
+
+
    let letsPlay = createGame();
 //    letsPlay();
+
+    field1.addEventListener('click', () => {
+        letsPlay(1);
+    })
+
+    field2.addEventListener('click', () => {
+        letsPlay(2);
+    })
+
+    field3.addEventListener('click', () => {
+        letsPlay(3);
+    })
+
+    field4.addEventListener('click', () => {
+        letsPlay(4);
+    })
+
+    field5.addEventListener('click', () => {
+        letsPlay(5);
+    })
+
+    field6.addEventListener('click', () => {
+        letsPlay(6);
+    })
+
+    field7.addEventListener('click', () => {
+        letsPlay(7);
+    })
+
+    field8.addEventListener('click', () => {
+        letsPlay(8);
+    })
+
+    field9.addEventListener('click', () => {
+        letsPlay(9);
+    })
 });

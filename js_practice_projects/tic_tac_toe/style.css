@@ -81,6 +81,10 @@ input {
     background-color: white;
 }
 
+#gameboard > *:active {
+    background-color: lightskyblue; 
+}
+
 #play {
     grid-area: btn;
     font-family: inherit;
