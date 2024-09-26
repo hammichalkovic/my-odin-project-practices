@@ -1,0 +1,102 @@
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: monospace;
+    font-weight: 900;
+
+    
+}
+
+#header {
+    border: 3px solid lightskyblue;
+    margin-bottom: 3vh;
+    height: 100px;
+    width: calc(70vh + 30px);
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 3px;
+    
+}
+
+form {
+    place-self: center;
+    inset: 1;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    grid-template-areas: 'player playername btn'
+                         'computer compname btn';
+}
+
+
+#my_label {
+    grid-area: player;
+}
+
+#my_name {
+    grid-area: playername;
+}
+
+label {
+    text-transform: lowercase;
+    display: flex;
+    flex-direction: column;
+    /* padding-right: -15px; */
+    place-self: center;
+    margin: 1% 0 0 2%;
+}
+
+input {
+    /* margin-left: 5px; */
+
+}
+
+#my_name,
+#computer_name {
+    place-self: center;
+    padding-top: 5%;
+}
+
+#gameboard {
+    min-height: 350px;
+    min-width: 350px;
+    height: 70vh;
+    width: 70vh;
+    border: 3px solid lightskyblue;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#gameboard > * {
+    border: 1px solid lightskyblue;
+    border-radius: 20px;
+    appearance: none;
+    background-color: white;
+}
+
+#play {
+    grid-area: btn;
+    font-family: inherit;
+    font-weight: inherit;
+    background-color: lightskyblue;
+    color: white;
+    border-color: transparent;
+    height: 30px;
+    width: 50%;
+    place-self: center;
+    margin-top: 5%;
+    /* box-sizing: border-box; */
+}
+
+#play:active {
+    color: lightskyblue;
+    border-color: lightskyblue;
+    background-color: white;
+}
