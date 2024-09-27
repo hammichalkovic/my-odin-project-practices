@@ -76,14 +76,19 @@ function createGame() {
     
         
         if (playerClicks.length > 2) {
+            
+            playerClicks.sort((a, b) => a - b).reverse();
+            computerClicks.sort((a, b) => a - b).reverse();
+
             if (playerClicks.slice(playerClicks.length - 3, playerClicks.length)) {
-                playerClicks.sort((a, b) => a - b);
-                computerClicks.sort((a, b) => a - b);  // think about sorting and condition. it can be backware order for winning
+                  // think about sorting and condition. it can be backware order for winning  
+
+                  // arr.filter(a => a == 1 || a == 2 || a == 3) and assign it's reduce
     
-                if (playerClicks.reduce((a, b) => a + 1) == playerClicks[playerClicks.length - 1] ||
-                    playerClicks.reduce((a, b) => a + 2) == playerClicks[playerClicks.length - 1] ||
-                    playerClicks.reduce((a, b) => a + 3) == playerClicks[playerClicks.length - 1] ||
-                    playerClicks.reduce((a, b) => a + 4) == playerClicks[playerClicks.length - 1]) {
+                if (playerClicks.reduce(a => a - 1) == playerClicks[playerClicks.length - 1] ||
+                    playerClicks.reduce(a => a - 2) == playerClicks[playerClicks.length - 1] ||
+                    playerClicks.reduce(a => a - 3) == playerClicks[playerClicks.length - 1] ||
+                    playerClicks.reduce(a => a - 4) == playerClicks[playerClicks.length - 1]) {
                         console.log('You won!');
                         player.score++;
                         myScore.innerHTML = player.score;
@@ -94,10 +99,10 @@ function createGame() {
 
                         
                 } else if (
-                    computerClicks.reduce((a, b) => a + 1) == computerClicks[computerClicks.length - 1] ||
-                    computerClicks.reduce((a, b) => a + 2) == computerClicks[computerClicks.length - 1] ||
-                    computerClicks.reduce((a, b) => a + 3) == computerClicks[computerClicks.length - 1] ||
-                    computerClicks.reduce((a, b) => a + 4) == computerClicks[computerClicks.length - 1]
+                    computerClicks.reduce(a => a - 1) == computerClicks[computerClicks.length - 1] ||
+                    computerClicks.reduce(a => a - 2) == computerClicks[computerClicks.length - 1] ||
+                    computerClicks.reduce(a => a - 3) == computerClicks[computerClicks.length - 1] ||
+                    computerClicks.reduce(a => a - 4) == computerClicks[computerClicks.length - 1]
                     ) {
                         console.log('Computer Won!');
                         computer.score++
