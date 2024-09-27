@@ -47,18 +47,28 @@ label {
     flex-direction: column;
     /* padding-right: -15px; */
     place-self: center;
-    margin: 1% 0 0 2%;
+    margin: 0.1% 0 0 2%;
+    color: lightskyblue;
 }
 
 input {
     /* margin-left: 5px; */
-
+    border-color: lightskyblue;
+    margin-top: 2px;
 }
 
 #my_name,
 #computer_name {
     place-self: center;
     padding-top: 5%;
+    /* border: 1px solid salmon; */
+    width: 100%;
+    height: 20px;
+    position: relative;
+    left: 20px;
+    top: 5px;
+    
+    
 }
 
 #gameboard {
@@ -103,4 +113,49 @@ input {
     color: lightskyblue;
     border-color: lightskyblue;
     background-color: white;
+}
+
+#result_notif {
+    font-size: 10vh;
+    text-align: center;
+    width: 50vh;
+    border: 5px solid lightskyblue;
+    color: rgb(9, 190, 139);
+    border-radius: 20px;
+    position: absolute;
+    background-color: white;;
+
+}
+
+.nodisplay {
+    display: none;
+}
+
+#my_name_for_game,
+#computer_name_for_game {
+    /* border: 1px solid red; */
+    display: block;
+    width: 70%;
+    /* margin-top: -2%; */
+    position: relative;
+    top: -5px;
+    color: lightskyblue;
+}
+
+#my_score,
+#computer_score {
+   display: block;
+   box-sizing: border-box;
+   margin-left: auto;
+   height: 32px;
+   width: 32px;
+   position: absolute;
+   border-radius: 12px;
+   right: 0;
+   bottom: 0;
+   background-color: lightskyblue;
+   color: white;
+   text-align: center;
+   padding-top: 7px;
+
 }
