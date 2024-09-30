@@ -84,6 +84,45 @@ function createGame() {
                   // think about sorting and condition. it can be backware order for winning  
 
                   // arr.filter(a => a == 1 || a == 2 || a == 3) and assign it's reduce
+                let winnerArrs = [[3, 2, 1],[6, 5, 4], [9, 8, 7], [7, 4, 1],[8, 5, 2], [9, 6, 3], [7, 5, 3], [9, 5, 1]];
+                let [var1, var2, var3, var4, var5, var6, var7, var8] = winnerArrs;
+                let winnerArrRestrctrd = [var1, var2, var3, var4, var5, var6, var7, var8];
+            
+            let toCheck = (array) => {
+
+                for (let item of winnerArrs) {
+
+                    
+                        if (!array.includes(item[0]) && !array.includes(item[1]) && !array.includes(item[2])) {
+                            console.log('Defeat!');
+                            break;
+                        } else {
+                            // item.splice(item.indexOf(i), 1);
+                            console.log('Winning!');
+                            // console.log(winnerArrs);
+                            break;
+                        }
+                        break;
+                    
+                // }}    
+                
+                    //     if (item.toString() == array.toString) {
+                //         console.log('You won!');
+                //         break;
+                //     } else if (array.toString() != item.toString()) {
+                //         console.log('You defeated!')
+                //         break;
+                // }
+
+                //     if (array.toString() == item.toString()) {
+                //         console.log('You won!');
+                //         break;
+                //     } else if (array.toString() != item.toString()) {
+                //         console.log('You defeated!')
+                //         break;
+                // }
+                
+            }};
     
                 if (playerClicks.reduce(a => a - 1) == playerClicks[playerClicks.length - 1] ||
                     playerClicks.reduce(a => a - 2) == playerClicks[playerClicks.length - 1] ||
@@ -197,7 +236,7 @@ document.getElementById('play').addEventListener('click', (e) => {
 
 
     let toPlay = createGame();
-//    letsPlay();
+ //    letsPlay();
 
     field1.addEventListener('click', () => {
         toPlay(1);
@@ -234,4 +273,5 @@ document.getElementById('play').addEventListener('click', (e) => {
     field9.addEventListener('click', () => {
         toPlay(9);
     })
+
 });
