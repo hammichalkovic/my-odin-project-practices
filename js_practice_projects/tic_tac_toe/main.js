@@ -84,45 +84,50 @@ function createGame() {
                   // think about sorting and condition. it can be backware order for winning  
 
                   // arr.filter(a => a == 1 || a == 2 || a == 3) and assign it's reduce
-                let winnerArrs = [[3, 2, 1],[6, 5, 4], [9, 8, 7], [7, 4, 1],[8, 5, 2], [9, 6, 3], [7, 5, 3], [9, 5, 1]];
+                
                 let [var1, var2, var3, var4, var5, var6, var7, var8] = winnerArrs;
                 let winnerArrRestrctrd = [var1, var2, var3, var4, var5, var6, var7, var8];
             
             let toCheck = (array) => {
 
+                let winnerArrs = [[3, 2, 1],[6, 5, 4], [9, 8, 7], [7, 4, 1],[8, 5, 2], [9, 6, 3], [7, 5, 3], [9, 5, 1]],
+                winnings = 0,
+                defeats = 0;
+
                 for (let item of winnerArrs) {
 
+                    for (let i of item) {
+                        let [a, b, c] = item;
+
                     
-                        if (!array.includes(item[0]) && !array.includes(item[1]) && !array.includes(item[2])) {
-                            console.log('Defeat!');
-                            break;
-                        } else {
-                            // item.splice(item.indexOf(i), 1);
-                            console.log('Winning!');
+                        if (!array.includes(i)) {
+                            defeats++
+                            console.log(`defeats = ${defeats}`);
                             // console.log(winnerArrs);
                             break;
+
+                        } else if (array.includes(a) && array.includes(b) && array.includes(c)){
+                            winnings++
+                            console.log(`winnings = ${winnings}`);
+                            break;
+
                         }
                         break;
-                    
-                // }}    
-                
-                    //     if (item.toString() == array.toString) {
-                //         console.log('You won!');
-                //         break;
-                //     } else if (array.toString() != item.toString()) {
-                //         console.log('You defeated!')
-                //         break;
-                // }
+                    }
 
-                //     if (array.toString() == item.toString()) {
-                //         console.log('You won!');
-                //         break;
-                //     } else if (array.toString() != item.toString()) {
-                //         console.log('You defeated!')
-                //         break;
-                // }
+                //    break;
                 
-            }};
+            }
+            console.log(`winnings sum = ${winnings}`)
+            console.log(`defeats sum = ${defeats}`)
+
+            if (winnings > 0) {
+                console.log('You won!')
+            } else if (winnings == 0) {
+                console.log('You defeated!')
+            }
+
+            };
     
                 if (playerClicks.reduce(a => a - 1) == playerClicks[playerClicks.length - 1] ||
                     playerClicks.reduce(a => a - 2) == playerClicks[playerClicks.length - 1] ||
