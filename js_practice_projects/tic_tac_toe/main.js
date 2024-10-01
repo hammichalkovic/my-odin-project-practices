@@ -237,38 +237,51 @@ document.getElementById('play').addEventListener('click', (e) => {
 
     field1.addEventListener('click', () => {
         toPlay(1);
+        field1.classList.add('player_choose');
     })
 
     field2.addEventListener('click', () => {
         toPlay(2);
+        field2.classList.add('player_choose');
     })
 
     field3.addEventListener('click', () => {
         toPlay(3);
+        field3.classList.add('player_choose');
     })
 
     field4.addEventListener('click', () => {
         toPlay(4);
+        field4.classList.add('player_choose');
     })
 
     field5.addEventListener('click', () => {
         toPlay(5);
+        field5.classList.add('player_choose');
     })
 
     field6.addEventListener('click', () => {
         toPlay(6);
+        field6.classList.add('player_choose');
+
     })
 
     field7.addEventListener('click', () => {
         toPlay(7);
+        field7.classList.add('player_choose');
+
     })
 
     field8.addEventListener('click', () => {
         toPlay(8);
+        field8.classList.add('player_choose');
+
     })
 
     field9.addEventListener('click', () => {
         toPlay(9);
+        field9.classList.add('player_choose');
+
     })
 
 });

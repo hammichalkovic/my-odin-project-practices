@@ -159,3 +159,9 @@ input {
    padding-top: 7px;
 
 }
+
+.player_choose {
+    background: center/90% url(./images/x-10327.svg) no-repeat;
+    fill: lightskyblue;
+    
+}
