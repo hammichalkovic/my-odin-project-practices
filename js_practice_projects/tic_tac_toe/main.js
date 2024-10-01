@@ -73,86 +73,78 @@ function createGame() {
         console.log(player);
         console.log(computer);
         console.log(game);
+
+        function toClean(arg) {
+            arg.score++;
+            myScore.innerHTML = arg.score;
+            player.clicks = [];
+            computer.clicks = []
+            game.gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            console.log(game);
+        }
     
-        
+        let toCheck = (array) => {
+
+            let winnerArrs = [[3, 2, 1],[6, 5, 4], [9, 8, 7], [7, 4, 1],[8, 5, 2], [9, 6, 3], [7, 5, 3], [9, 5, 1]],
+            winnings = 0,
+            defeats = 0;
+
+            for (let item of winnerArrs) {
+
+                for (let i of item) {
+                    let [a, b, c] = item;
+
+                
+                    if (!array.includes(i)) {
+                        defeats++
+                        console.log(`defeats = ${defeats}`);
+                        // console.log(winnerArrs);
+                        break;
+
+                    } else if (array.includes(a) && array.includes(b) && array.includes(c)){
+                        winnings++
+                        console.log(`winnings = ${winnings}`);
+                        break;
+
+                    }
+                    break;
+                }
+
+            //    break;
+            
+        }
+        console.log(`winnings sum = ${winnings}`)
+        console.log(`defeats sum = ${defeats}`)
+
+        // if (winnings > 0) {
+        //     console.log(' won!');
+        //     toClean();
+        // } else if (winnings == 0) {
+        //     console.log('You defeated!');
+        //     toClean();
+        // }
+
+        return winnings;
+
+        };
+
         if (playerClicks.length > 2) {
             
-            playerClicks.sort((a, b) => a - b).reverse();
-            computerClicks.sort((a, b) => a - b).reverse();
+            let playerCompareArr = playerClicks.sort((a, b) => a - b).reverse();
+            let computerCompareArr = computerClicks.sort((a, b) => a - b).reverse();
 
-            if (playerClicks.slice(playerClicks.length - 3, playerClicks.length)) {
-                  // think about sorting and condition. it can be backware order for winning  
+            let playerResult = toCheck(playerCompareArr);
+            let computerResult = toCheck(computerCompareArr);
 
-                  // arr.filter(a => a == 1 || a == 2 || a == 3) and assign it's reduce
-                
-                let [var1, var2, var3, var4, var5, var6, var7, var8] = winnerArrs;
-                let winnerArrRestrctrd = [var1, var2, var3, var4, var5, var6, var7, var8];
-            
-            let toCheck = (array) => {
-
-                let winnerArrs = [[3, 2, 1],[6, 5, 4], [9, 8, 7], [7, 4, 1],[8, 5, 2], [9, 6, 3], [7, 5, 3], [9, 5, 1]],
-                winnings = 0,
-                defeats = 0;
-
-                for (let item of winnerArrs) {
-
-                    for (let i of item) {
-                        let [a, b, c] = item;
-
-                    
-                        if (!array.includes(i)) {
-                            defeats++
-                            console.log(`defeats = ${defeats}`);
-                            // console.log(winnerArrs);
-                            break;
-
-                        } else if (array.includes(a) && array.includes(b) && array.includes(c)){
-                            winnings++
-                            console.log(`winnings = ${winnings}`);
-                            break;
-
-                        }
-                        break;
-                    }
-
-                //    break;
-                
-            }
-            console.log(`winnings sum = ${winnings}`)
-            console.log(`defeats sum = ${defeats}`)
-
-            if (winnings > 0) {
+            if (playerResult >= computerResult) {
+                toClean(player);
                 console.log('You won!')
-            } else if (winnings == 0) {
-                console.log('You defeated!')
+            } else if (computerResult > playerResult) {
+                toClean(computer);
+                console.log('Computer Won!');
             }
 
-            };
-    
-                if (playerClicks.reduce(a => a - 1) == playerClicks[playerClicks.length - 1] ||
-                    playerClicks.reduce(a => a - 2) == playerClicks[playerClicks.length - 1] ||
-                    playerClicks.reduce(a => a - 3) == playerClicks[playerClicks.length - 1] ||
-                    playerClicks.reduce(a => a - 4) == playerClicks[playerClicks.length - 1]) {
-                        console.log('You won!');
-                        player.score++;
-                        myScore.innerHTML = player.score;
-                        player.clicks = [];
-                        computer.clicks = []
-                        gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-                        console.log(game);
-
-                        
-                } else if (
-                    computerClicks.reduce(a => a - 1) == computerClicks[computerClicks.length - 1] ||
-                    computerClicks.reduce(a => a - 2) == computerClicks[computerClicks.length - 1] ||
-                    computerClicks.reduce(a => a - 3) == computerClicks[computerClicks.length - 1] ||
-                    computerClicks.reduce(a => a - 4) == computerClicks[computerClicks.length - 1]
-                    ) {
-                        console.log('Computer Won!');
-                        computer.score++
-                        enemyScore.innerHTML = computer.score;
-                }
-            }
+            
     
                 // to use sort() and reduce() methods to create conditions for +1,+2,+3, +4 wins
         } 
