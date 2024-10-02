@@ -19,7 +19,8 @@ function createGame() {
         displayPlayer = document.getElementById('my_name_for_game'),
         displayComputer = document.getElementById('computer_name_for_game'),
         myScore = document.getElementById('my_score'),
-        enemyScore = document.getElementById('computer_score');
+        enemyScore = document.getElementById('computer_score'),
+        fields = document.querySelectorAll('.field');
 
     let createPlayer = ticTacToeGame();
     let player = createPlayer(inputPlayerName.value),
@@ -47,16 +48,33 @@ function createGame() {
         let {player, computer, gameboard} = game,
             {name: playerName, clicks: playerClicks, score: playerScore, scoreIncrement: playerScoreIncrement} = player,
             {name: computerName, clicks: computerClicks, score: computerScore, scoreIncrement: computerScoreIncrement} = computer;
-    
+        
         let playerExtractVal = gameboard.filter(i => i == playerNum);
         gameboard = gameboard.filter(i => i != playerNum);
-    
-        let computerNum = Math.floor(Math.random() * (gameboard.length - 1) + 1),
-            computerExtractVal = gameboard.filter(i => i == gameboard[computerNum])
+        
+        let computerNum = Math.floor(Math.random() * (gameboard.length - 1) + 1);
+        console.log(computerNum);
+            
+            computerExtractVal = gameboard.filter(i => i == gameboard[computerNum]);
+
+            if (fields[computerExtractVal - 1].classList.contains('player_choose')) {
+
+            } else {
+                if (computerExtractVal == 0) {
+                    fields[0].classList.add('computer_choose');
+                } else {
+                    fields[computerExtractVal - 1].classList.add('computer_choose');
+                }
+            }
+            
+            
+            
             gameboard = gameboard.filter(i => i != gameboard[computerNum]);
+            fields
     
         playerClicks = player.clicks.concat(playerExtractVal);
         computerClicks = computer.clicks.concat(computerExtractVal);
+        
         // cons
         // console.log(extractVal);
         // game.player.clicks = game.player.clicks.concat(extractVal);
@@ -76,16 +94,30 @@ function createGame() {
         console.log(computer);
         console.log(game);
 
-        function toClean(arg) {
-            let fields = document.querySelectorAll('.field');
+        function toClean(arg, scr) {
+            
 
             arg.score++;
-            myScore.innerHTML = arg.score;
+            scr.innerHTML = arg.score;
             player.clicks = [];
             computer.clicks = []
             game.gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
             fields.forEach(field => {
                 field.classList.remove('player_choose');
+                field.classList.remove('computer_choose');
+            })
+
+            console.log(game);
+        }
+
+        function toDeadHeatClean() {
+            
+            player.clicks = [];
+            computer.clicks = []
+            game.gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            fields.forEach(field => {
+                field.classList.remove('player_choose');
+                field.classList.remove('computer_choose');
             })
 
             console.log(game);
@@ -144,12 +176,17 @@ function createGame() {
             let playerResult = toCheck(playerCompareArr);
             let computerResult = toCheck(computerCompareArr);
 
-            if (playerResult >= computerResult) {
+            if (playerResult > computerResult) {
                 console.log('You won!');
-                setTimeout(() => {toClean(player)}, 500);
+                setTimeout(() => {toClean(player, myScore)}, 500);
             } else if (computerResult > playerResult) {
                 console.log('Computer Won!');
-                setTimeout(() => {toClean(computer)}, 500);
+                setTimeout(() => {toClean(computer, enemyScore)}, 500);
+            } else 
+            // if (computerResult == playerResult)
+                 {
+                // console.log('Nobody Won!');
+                // setTimeout(() => {toDeadHeatClean()}, 500);
             }
 
             

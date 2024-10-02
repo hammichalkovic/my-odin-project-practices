@@ -93,6 +93,11 @@ input {
 
 #gameboard > *:active {
     background-color: lightskyblue; 
+    
+}
+
+#gameboard > *:hover {
+    cursor: pointer;
 }
 
 #play {
@@ -113,6 +118,7 @@ input {
     color: lightskyblue;
     border-color: lightskyblue;
     background-color: white;
+    cursor: pointer;
 }
 
 #result_notif {
@@ -161,7 +167,12 @@ input {
 }
 
 .player_choose {
-    background: center/90% url(./images/x-10327.svg) no-repeat;
+    background: center/75% url(./images/x-10327.svg) no-repeat;
     fill: rgb(135, 206, 250);
     
+}
+
+.computer_choose {
+    background: center/85% url(./images/lined-circle-4076.svg) no-repeat;
+    fill: rgb(135, 206, 250);
 }
