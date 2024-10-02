@@ -32,6 +32,8 @@ function createGame() {
 
     displayPlayer.innerHTML = player.name;
     displayComputer.innerHTML = computer.name;
+    myScore.style.cssText = 'display: block;';
+    enemyScore.style.cssText = 'display: block;';
     myScore.innerHTML = player.score;
     enemyScore.innerHTML = computer.score;
 
@@ -75,11 +77,17 @@ function createGame() {
         console.log(game);
 
         function toClean(arg) {
+            let fields = document.querySelectorAll('.field');
+
             arg.score++;
             myScore.innerHTML = arg.score;
             player.clicks = [];
             computer.clicks = []
             game.gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            fields.forEach(field => {
+                field.classList.remove('player_choose');
+            })
+
             console.log(game);
         }
     
@@ -137,11 +145,11 @@ function createGame() {
             let computerResult = toCheck(computerCompareArr);
 
             if (playerResult >= computerResult) {
-                toClean(player);
-                console.log('You won!')
+                console.log('You won!');
+                setTimeout(() => {toClean(player)}, 500);
             } else if (computerResult > playerResult) {
-                toClean(computer);
                 console.log('Computer Won!');
+                setTimeout(() => {toClean(computer)}, 500);
             }
 
             

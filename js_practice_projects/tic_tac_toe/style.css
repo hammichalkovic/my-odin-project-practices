@@ -144,7 +144,7 @@ input {
 
 #my_score,
 #computer_score {
-   display: block;
+   display: none;
    box-sizing: border-box;
    margin-left: auto;
    height: 32px;
@@ -162,6 +162,6 @@ input {
 
 .player_choose {
     background: center/90% url(./images/x-10327.svg) no-repeat;
-    fill: lightskyblue;
+    fill: rgb(135, 206, 250);
     
 }
