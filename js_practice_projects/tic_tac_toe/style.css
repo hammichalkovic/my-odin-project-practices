@@ -72,8 +72,8 @@ input {
 }
 
 #gameboard {
-    min-height: 350px;
-    min-width: 350px;
+    /* min-height: 350px;
+    min-width: 350px; */
     height: 70vh;
     width: 70vh;
     border: 3px solid lightskyblue;
@@ -181,4 +181,58 @@ input {
 .computer_choose {
     background: center/85% url(./images/lined-circle-4076.svg) no-repeat;
     fill: rgb(135, 206, 250);
+}
+
+@media screen and (max-width: 647px) {
+
+    #header {
+        height: 250px;
+        min-height: 250px;
+        width: 360px;
+    }
+
+    form {
+        grid-template: repeat(5, 1fr) / 1fr;
+        grid-template-areas: 'player'
+                             'computer'
+                             'playername'
+                             'compname'
+                             'btn';
+
+    } 
+
+    form > * {
+        /* border: 1px solid salmon; */
+    }
+
+    input {
+        width: 290px;
+        margin: 0 0 0 -5px;
+        
+        
+    }
+
+    #my_name,
+    #computer_name {
+        left: 1vw;
+        top: 7px;
+        width: 280px;
+    }
+
+    #play {
+        margin-top: 15px;
+    }
+
+    #gameboard {
+        min-height: 333px;
+        height: 333px;
+        min-width: 333px;
+        width: 333px;
+        
+    }
+
+    .result_notif {
+        width: 350px;
+        font-size: 5vh;
+    }
 }
