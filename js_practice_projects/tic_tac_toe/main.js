@@ -57,20 +57,23 @@ function createGame() {
             
             computerExtractVal = gameboard.filter(i => i == gameboard[computerNum]);
 
-            if (fields[computerExtractVal - 1].classList.contains('player_choose')) {
+            // if (fields[computerExtractVal - 1].classList.contains('player_choose')) {
 
-            } else {
-                if (computerExtractVal == 0) {
-                    fields[0].classList.add('computer_choose');
-                } else {
+            // } else {
+                // if (computerExtractVal == 0) {
+                //     fields[0].classList.add('computer_choose');
+                // } else {
+                if (gameboard.length > 0) {
                     fields[computerExtractVal - 1].classList.add('computer_choose');
-                }
-            }
+                } 
+                    
+                // }
+            // }
             
             
             
             gameboard = gameboard.filter(i => i != gameboard[computerNum]);
-            fields
+            // fields
     
         playerClicks = player.clicks.concat(playerExtractVal);
         computerClicks = computer.clicks.concat(computerExtractVal);
@@ -182,11 +185,10 @@ function createGame() {
             } else if (computerResult > playerResult) {
                 console.log('Computer Won!');
                 setTimeout(() => {toClean(computer, enemyScore)}, 500);
-            } else 
-            // if (computerResult == playerResult)
+            } else if (computerResult == playerResult && gameboard.length == 0)
                  {
-                // console.log('Nobody Won!');
-                // setTimeout(() => {toDeadHeatClean()}, 500);
+                console.log('Nobody Won!');
+                setTimeout(() => {toDeadHeatClean()}, 500);
             }
 
             
