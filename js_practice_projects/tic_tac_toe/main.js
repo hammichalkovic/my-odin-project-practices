@@ -41,7 +41,7 @@ function createGame() {
     inputPlayerName.value = '';
     inputComputerName.value = '';
     
-    console.log(game);
+    // console.log(game);
 
     return function extractValues(playerNum) {
 
@@ -53,7 +53,7 @@ function createGame() {
         gameboard = gameboard.filter(i => i != playerNum);
         
         let computerNum = Math.floor(Math.random() * (gameboard.length - 1) + 1);
-        console.log(computerNum);
+        // console.log(computerNum);
             
             computerExtractVal = gameboard.filter(i => i == gameboard[computerNum]);
 
@@ -65,7 +65,7 @@ function createGame() {
                 // } else {
                 if (gameboard.length > 0) {
                     fields[computerExtractVal - 1].classList.add('computer_choose');
-                    console.log(computerExtractVal);  
+                    // console.log(computerExtractVal);  
                 } 
              
               
@@ -91,13 +91,13 @@ function createGame() {
         game = {player, computer, gameboard}
     
         // console.log(player.clicks);
-        console.log(playerClicks);
+        // console.log(playerClicks);
         // console.log(computer.clicks);
-        console.log(computerClicks);
-        console.log(gameboard);
-        console.log(player);
-        console.log(computer);
-        console.log(game);
+        // console.log(computerClicks);
+        // console.log(gameboard);
+        // console.log(player);
+        // console.log(computer);
+        // console.log(game);
 
         function toClean(arg, scr) {
             
@@ -112,7 +112,7 @@ function createGame() {
                 field.classList.remove('computer_choose');
             })
 
-            console.log(game);
+            // console.log(game);
         }
 
         function toDeadHeatClean() {
@@ -125,7 +125,7 @@ function createGame() {
                 field.classList.remove('computer_choose');
             })
 
-            console.log(game);
+            // console.log(game);
         }
     
         let toCheck = (array) => {
@@ -142,13 +142,13 @@ function createGame() {
                 
                     if (!array.includes(i)) {
                         defeats++
-                        console.log(`defeats = ${defeats}`);
+                        // console.log(`defeats = ${defeats}`);
                         // console.log(winnerArrs);
                         break;
 
                     } else if (array.includes(a) && array.includes(b) && array.includes(c)){
                         winnings++
-                        console.log(`winnings = ${winnings}`);
+                        // console.log(`winnings = ${winnings}`);
                         break;
 
                     }
@@ -158,16 +158,11 @@ function createGame() {
             //    break;
             
         }
-        console.log(`winnings sum = ${winnings}`)
-        console.log(`defeats sum = ${defeats}`)
 
-        // if (winnings > 0) {
-        //     console.log(' won!');
-        //     toClean();
-        // } else if (winnings == 0) {
-        //     console.log('You defeated!');
-        //     toClean();
-        // }
+        // console.log(`winnings sum = ${winnings}`)
+        // console.log(`defeats sum = ${defeats}`)
+
+      
 
         return winnings;
 
@@ -218,7 +213,7 @@ function createGame() {
                 playerResult = 0;
                 computerResult = 0;
             } else if (playerResult > 0 &&  playerResult == computerResult && gameboard.length > 0) {
-                console.log('You won!');
+                toDisplayWinner('You won!','rgb(9, 190, 139)');
                 setTimeout(() => {toClean(player, myScore)}, 500);
                 playerResult = 0;
                 computerResult = 0;
@@ -234,69 +229,7 @@ function createGame() {
 
 }
 
-// let game = createGame('Nick', 'Computer'); // try to desctructure it 
 
-
-
-// function extractValues(playerNum) {
-
-//     let {player, computer, gameboard} = game,
-//         {name: playerName, clicks: playerClicks, scoreIncrement: playerScoreIncrement} = player,
-//         {name: computerName, clicks: computerClicks, scoreIncrement: computerScoreIncrement} = computer;
-
-//     let playerExtractVal = gameboard.filter(i => i == playerNum);
-//     gameboard = gameboard.filter(i => i != playerNum);
-
-//     let computerNum = Math.floor(Math.random() * (gameboard.length - 1) + 1),
-//         computerExtractVal = gameboard.filter(i => i == gameboard[computerNum])
-//         gameboard = gameboard.filter(i => i != gameboard[computerNum]);
-
-//     playerClicks = player.clicks.concat(playerExtractVal);
-//     computerClicks = computer.clicks.concat(computerExtractVal);
-//     // cons
-//     // console.log(extractVal);
-//     // game.player.clicks = game.player.clicks.concat(extractVal);
-//     // game.player.clicks = 
-//     // game.player.clicks = game.player.clicks.push(extractVal);
-
-//     computer = {name: computerName, clicks: computerClicks, scoreIncrement: computerScoreIncrement};
-//     player = {name: playerName, clicks: playerClicks, scoreIncrement: playerScoreIncrement};
-//     game = {player, computer, gameboard}
-
-//     // console.log(player.clicks);
-//     console.log(playerClicks);
-//     // console.log(computer.clicks);
-//     console.log(computerClicks);
-//     console.log(gameboard);
-//     console.log(player);
-//     console.log(computer);
-//     console.log(game);
-
-    
-//     if (playerClicks.length > 2) {
-//         if (playerClicks.slice(playerClicks.length - 3, playerClicks.length)) {
-//             playerClicks.sort((a, b) => a - b);
-//             computerClicks.sort((a, b) => a - b);  // think about sorting and condition. it can be backware order for winning
-
-//             if (playerClicks.reduce((a, b) => a + 1) == playerClicks[playerClicks.length - 1] ||
-//                 playerClicks.reduce((a, b) => a + 2) == playerClicks[playerClicks.length - 1] ||
-//                 playerClicks.reduce((a, b) => a + 3) == playerClicks[playerClicks.length - 1] ||
-//                 playerClicks.reduce((a, b) => a + 4) == playerClicks[playerClicks.length - 1]) {
-//                     return 'You won!'
-//             } else if (
-//                 computerClicks.reduce((a, b) => a + 1) == computerClicks[computerClicks.length - 1] ||
-//                 computerClicks.reduce((a, b) => a + 2) == computerClicks[computerClicks.length - 1] ||
-//                 computerClicks.reduce((a, b) => a + 3) == computerClicks[computerClicks.length - 1] ||
-//                 computerClicks.reduce((a, b) => a + 4) == computerClicks[computerClicks.length - 1]
-//                 ) {
-//                     return 'Computer Won!'
-//             }
-//         }
-
-//             // to use sort() and reduce() methods to create conditions for +1,+2,+3, +4 wins
-//     } 
-    
-// }
 
 document.getElementById('play').addEventListener('click', (e) => { 
 
