@@ -65,8 +65,10 @@ function createGame() {
                 // } else {
                 if (gameboard.length > 0) {
                     fields[computerExtractVal - 1].classList.add('computer_choose');
+                    console.log(computerExtractVal);  
                 } 
-                    
+             
+              
                 // }
             // }
             
@@ -128,7 +130,7 @@ function createGame() {
     
         let toCheck = (array) => {
 
-            let winnerArrs = [[3, 2, 1],[6, 5, 4], [9, 8, 7], [7, 4, 1],[8, 5, 2], [9, 6, 3], [7, 5, 3], [9, 5, 1]],
+            let winnerArrs = [[3, 2, 1],[6, 5, 4], [9, 8, 7], [7, 4, 1],[8, 5, 2], [2, 5, 8], [6, 3, 9], [9, 6, 3], [7, 5, 3], [9, 5, 1]],
             winnings = 0,
             defeats = 0;
 
@@ -169,9 +171,23 @@ function createGame() {
 
         return winnings;
 
+        
         };
 
-        if (playerClicks.length > 2) {
+        if (playerClicks.length > 2 || computerClicks.length > 2) {
+            let displayWinner = document.querySelector('.result_notif');
+
+            function toDisplayWinner(text, color) {
+                displayWinner.innerHTML = text;
+                displayWinner.style.cssText = `color: ${color}`
+
+                setTimeout(() => {
+                    displayWinner.classList.toggle('nodisplay');
+                }, 100);
+                setTimeout(() => {
+                    displayWinner.classList.toggle('nodisplay');
+                }, 1300);
+            }
             
             let playerCompareArr = playerClicks.sort((a, b) => a - b).reverse();
             let computerCompareArr = computerClicks.sort((a, b) => a - b).reverse();
@@ -180,17 +196,34 @@ function createGame() {
             let computerResult = toCheck(computerCompareArr);
 
             if (playerResult > computerResult) {
-                console.log('You won!');
-                setTimeout(() => {toClean(player, myScore)}, 500);
+                
+                // displayPlayer.classList.toggle('nodisplay');
+                toDisplayWinner('You won!','rgb(9, 190, 139)');
+                setTimeout(() => {
+                    toClean(player, myScore);
+                }, 500);
+                
+                playerResult = 0;
+                computerResult = 0;
+                
             } else if (computerResult > playerResult) {
-                console.log('Computer Won!');
+                toDisplayWinner('Computer Won!', 'red');
                 setTimeout(() => {toClean(computer, enemyScore)}, 500);
+                playerResult = 0;
+                computerResult = 0;
             } else if (computerResult == playerResult && gameboard.length == 0)
                  {
-                console.log('Nobody Won!');
+                    toDisplayWinner('Nobody Won!', 'salmon');
                 setTimeout(() => {toDeadHeatClean()}, 500);
+                playerResult = 0;
+                computerResult = 0;
+            } else if (playerResult > 0 &&  playerResult == computerResult && gameboard.length > 0) {
+                console.log('You won!');
+                setTimeout(() => {toClean(player, myScore)}, 500);
+                playerResult = 0;
+                computerResult = 0;
             }
-
+ 
             
     
                 // to use sort() and reduce() methods to create conditions for +1,+2,+3, +4 wins
@@ -265,7 +298,17 @@ function createGame() {
     
 // }
 
-document.getElementById('play').addEventListener('click', (e) => {
+document.getElementById('play').addEventListener('click', (e) => { 
+
+    e.target.classList.toggle('reloader');
+    document.getElementById('play').innerHTML = 'Stop Game!'
+
+    if (e.target.classList.contains('reloader')) {
+
+        
+        window.location.reload();
+    }
+    
     let field1 = document.getElementById('1'),
         field2 = document.getElementById('2'),
         field3 = document.getElementById('3'),
@@ -274,13 +317,19 @@ document.getElementById('play').addEventListener('click', (e) => {
         field6 = document.getElementById('6'),
         field7 = document.getElementById('7'),
         field8 = document.getElementById('8'),
-        field9 = document.getElementById('9');
+        field9 = document.getElementById('9'),
+        fields = document.querySelectorAll('.field');
         
-
-
+       
 
     let toPlay = createGame();
  //    letsPlay();
+
+ fields.forEach(field => {
+    field.classList.remove('player_choose');
+    field.classList.remove('computer_choose');
+})
+    
 
     field1.addEventListener('click', () => {
         toPlay(1);
@@ -330,5 +379,9 @@ document.getElementById('play').addEventListener('click', (e) => {
         field9.classList.add('player_choose');
 
     })
+
+    
+    
+    
 
 });

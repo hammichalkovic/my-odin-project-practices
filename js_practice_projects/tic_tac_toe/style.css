@@ -101,6 +101,7 @@ input {
 }
 
 #play {
+   
     grid-area: btn;
     font-family: inherit;
     font-weight: inherit;
@@ -121,15 +122,20 @@ input {
     cursor: pointer;
 }
 
-#result_notif {
-    font-size: 10vh;
-    text-align: center;
+.result_notif {
+    font-size: 6vh;
+    /* text-align: center; */
     width: 50vh;
     border: 5px solid lightskyblue;
     color: rgb(9, 190, 139);
     border-radius: 20px;
     position: absolute;
     background-color: white;;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
 
 }
 
