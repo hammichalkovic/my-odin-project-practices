@@ -1,0 +1,225 @@
+@font-face {
+    font-family: 'Josefin Slab';
+    src: url('./fonts/JosefinSlab-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Great Vibes';
+    src: url('./fonts/GreatVibes-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Quicksand Regular';
+    src: url('./fonts/Quicksand-Regular.otf');
+}
+
+
+html {
+    font-size: 2vh;
+}
+
+body {
+    background-color: #F2E8CF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+nav {
+    margin-top: 1rem;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    /* border: 1px solid black; */
+
+}
+
+button {
+    appearance: none;
+    border: 1px solid transparent;
+    background-color: transparent;
+    font-family: 'Josefin Slab';
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #BC4749;
+    font-weight: 900;
+    font-size: 0.7rem;
+}
+
+button:hover {
+    font-family: 'Great Vibes';
+    cursor: pointer;
+    font-weight: 900;
+}
+
+h1, h2 {
+    font-family: 'Josefin Slab';
+    font-weight: 900;
+    text-transform: uppercase;
+
+}
+
+h1 {
+
+    font-size: 4rem;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #BC4749;
+}
+
+h3 {
+    font-family: 'Great Vibes';
+    font-size: 1.7rem;
+    letter-spacing: 0.15rem;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+p {
+    font-family: 'Quicksand Regular';
+    /* font-weight: 500; */
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Josefin Slab';
+    color: #BC4749;
+
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.motto {
+    font-family: 'Great Vibes';
+    font-size: 2.2rem;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+#logo,
+.menu__item {
+    border: 1px solid transparent;
+    border-radius: 20px;
+    margin-top: 1.5rem;
+    /* filter: grayscale(50%); */
+    position: relative;
+    z-index: 0;
+    
+}
+
+.menu__item { 
+    width: 48vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    /* align-self: center; */
+}
+
+
+
+
+#logo {
+    background: no-repeat center/101%  url('./carolyn-delacorte-KaK9_QKkV0o-unsplash.jpg') hsla(0, 0%, 0%, 0.089);
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+/* #lead__text { width: 47vw; } */
+
+#mediterranean {
+    background: no-repeat center/101%  url('./Mediterranean-White-Bean-Soup-09.jpg');     
+}
+
+#navy {
+    background: no-repeat center/101%  url('./k_Photo_Recipes_2024-04-navy-bean-soup_navy-bean-soup-28.jpeg');     
+}
+
+#pumpkin {
+    background: no-repeat center/101%  url('./Pumpkin&beans.png');     
+}
+
+
+
+#logo::before,
+.menu__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.menu__item > * {
+    z-index: 2;
+    position: relative;
+    display: block;
+}
+
+.menu__item > p {
+    font-weight: 400;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.menu__item::before {
+    opacity: 0.3;
+}
+
+.menu__item:hover { cursor: pointer; }
+
+.menu__item:hover > * {
+    font-weight: 600;
+    
+
+    p {
+        font-weight: 900;
+    }
+}
+
+#content {
+    width: 48vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+#contacts_card > * {
+    display: block;
+    position: relative;
+}
+
+#contacts_card {
+    border: 3px solid #BC4749;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 20px;
+
+}
+
+#contacts_card > * {
+    margin-bottom: 1.8rem;
+}
+
+#bean_lord {
+    color:#BC4749;
+}
+
