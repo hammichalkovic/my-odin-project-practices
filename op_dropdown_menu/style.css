@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+
+body {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-size: 4vh;
+}
+
+main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h1,
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+.threedots_toggler {
+  height: 4vh;
+  width: 4vh;
+  border: 0.5rem solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.threedots_toggler > * {
+  height: 0.8vh;
+  width: 0.8vh;
+  background-color: black;
+}
+
+#title {
+  text-align: center;
+}
