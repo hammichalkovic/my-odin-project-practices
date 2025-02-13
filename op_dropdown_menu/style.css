@@ -4,21 +4,32 @@ body {
   font-family: "Silkscreen", sans-serif;
   font-weight: 400;
   font-size: 4vh;
+  margin: 0;
+  padding: 0;
 }
 
 main {
   display: flex;
   justify-content: space-evenly;
+  background-color: pink;
+  height: 78.9vh;
 }
 
 h1,
 h2 {
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 500;
+  /* text-decoration:  */
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 6rem;
+  text-align: center;
+}
+
+h2 {
+  max-width: 30vw;
+  text-align: center;
 }
 
 .threedots_toggler {
@@ -36,6 +47,78 @@ h1 {
   background-color: black;
 }
 
+.nav_header {
+  display: flex;
+  align-items: center;
+}
+
+#nav {
+  position: relative;
+  height: 100%;
+  /* display: flex; */
+}
+
+.nav_body {
+  position: absolute;
+  /* box-sizing: border-box; */
+  top: 0;
+  right: 0;
+
+  color: white;
+  background-color: black;
+  height: 78.9vh;
+  padding: 0 1.5rem;
+  margin-right: -10.3vw;
+  transition: all 0.3s ease-out;
+  /* width: 0; */
+  /* display: none; */
+  width: 48.65vw;
+  /* padding: 0; */
+  transform-origin: right;
+  /* width: 0vw; */
+}
+
+.hidden {
+  /* display: none; */
+  /* left: -1.38vw; */
+  /* opacity: 0; */
+  transform: scaleX(100%);
+  padding: 0;
+  overflow: hidden;
+  width: 0vw;
+  /* width: 0;1 */
+}
+
+.nav_body > * {
+  font-size: 5rem;
+}
+
+.nav_close {
+  /* margin-left: auto; */
+  cursor: pointer;
+}
+
 #title {
   text-align: center;
 }
+
+#nav_open {
+  text-align: center;
+  margin: 0.5rem 0 0 5rem;
+  padding: 0;
+  font-size: 1.4rem;
+  width: 5rem;
+  height: 1.9rem;
+  /* border: 0.1rem; */
+  box-shadow: -0.25rem 0 0 0 black, 0.25rem 0 0 0 black, 0 -0.25rem 0 0 black,
+    0 0.25rem 0 0 black;
+  background-color: white;
+}
+
+#nav_open:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+/* #nav_; */
