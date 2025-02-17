@@ -59,6 +59,10 @@ h2 {
   /* margin-top: -5rem; */
 }
 
+.threedots_toggler:hover {
+  cursor: pointer;
+}
+
 /* .threedots_header {
   flex-direction: row-reverse;
 } */
@@ -79,17 +83,18 @@ h2 {
   background-color: black;
   height: 78.9vh;
   padding: 0 1.5rem;
-  margin-right: -10.3vw;
+  margin-right: -13.05vw;
   transition: all 0.3s ease-out;
   /* width: 0; */
   /* display: none; */
   width: 48.65vw;
+  /* width: 50vw; */
   /* padding: 0; */
   transform-origin: right;
   /* width: 0vw; */
 }
 
-.hidden {
+.hidden_nav {
   /* display: none; */
   /* left: -1.38vw; */
   /* opacity: 0; */
@@ -120,6 +125,10 @@ h2 {
   flex-direction: column;
   justify-content: space-around;
   position: relative;
+}
+
+.hidden_threedots {
+  display: none;
 }
 
 .threedots_arrow {
