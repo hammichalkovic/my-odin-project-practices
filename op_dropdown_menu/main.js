@@ -4,15 +4,25 @@ let navBody = document.querySelector(".nav_body"),
   threeDotsMenu = document.querySelector(".threedots_menu"),
   threeDotsToggler = document.querySelector(".threedots_toggler");
 
-navOpener.addEventListener("click", () => {
-  console.log("clicked!");
-  navBody.classList.toggle("hidden_nav");
-});
+function toToggle(clicked, transformed, cls) {
+  clicked.addEventListener("click", () => {
+    transformed.classList.toggle(cls);
+  });
+}
 
-navCloser.addEventListener("click", () => {
-  console.log("clicked!");
-  navBody.classList.toggle("hidden_nav");
-});
-threeDotsToggler.addEventListener("click", () => {
-  threeDotsMenu.classList.toggle("hidden_threedots");
-});
+toToggle(navOpener, navBody, "hidden_nav");
+toToggle(navCloser, navBody, "hidden_nav");
+toToggle(threeDotsToggler, threeDotsMenu, "hidden_threedots");
+
+// navOpener.addEventListener("click", () => {
+// console.log("clicked!");
+// navBody.classList.toggle("hidden_nav");
+// });
+
+// navCloser.addEventListener("click", () => {
+//   console.log("clicked!");
+//   navBody.classList.toggle("hidden_nav");
+// });
+// threeDotsToggler.addEventListener("click", () => {
+//   threeDotsMenu.classList.toggle("hidden_threedots");
+// });
