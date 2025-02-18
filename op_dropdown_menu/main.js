@@ -13,16 +13,3 @@ function toToggle(clicked, transformed, cls) {
 toToggle(navOpener, navBody, "hidden_nav");
 toToggle(navCloser, navBody, "hidden_nav");
 toToggle(threeDotsToggler, threeDotsMenu, "hidden_threedots");
-
-// navOpener.addEventListener("click", () => {
-// console.log("clicked!");
-// navBody.classList.toggle("hidden_nav");
-// });
-
-// navCloser.addEventListener("click", () => {
-//   console.log("clicked!");
-//   navBody.classList.toggle("hidden_nav");
-// });
-// threeDotsToggler.addEventListener("click", () => {
-//   threeDotsMenu.classList.toggle("hidden_threedots");
-// });
