@@ -211,11 +211,26 @@ h2 {
   position: relative;
   /* width: 100%; */
   /* height: 100%; */
+  overflow: hidden;
+  /* box-sizing: border-box; */
 }
 
-.pic {
-  width: 100%;
+.carousel_moving {
+  display: flex;
   height: 100%;
+  width: 300vw;
+  /* transform: translateX(0); */
+  transition: transform 1s ease-in-out;
+}
+
+/* .с {
+  transform: translateX(-100vw);
+} */
+
+.pic {
+  width: 100vw;
+  height: 100%;
+  transition: transform 0.3 ease-in-out;
 }
 
 .cake,
