@@ -223,6 +223,10 @@ h2 {
   transition: transform 1s ease-in-out;
 }
 
+/* .move {
+  transform: translateX(-100vw);
+} */
+
 /* .с {
   transform: translateX(-100vw);
 } */
@@ -230,7 +234,7 @@ h2 {
 .pic {
   width: 100vw;
   height: 100%;
-  transition: transform 0.3 ease-in-out;
+  transition: transform 1s ease-in-out;
 }
 
 .cake,

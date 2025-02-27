@@ -21,14 +21,28 @@ function toRepeatFunction(func, inteval) {
   return setInterval(func, inteval);
 }
 
-function translateCarousel() {
-  carouselMovingPart.style.cssText = "transform: translateX(-100vw);";
-  setTimeout(() => {
-    carouselMovingPart.style.cssText = "transform: translateX(-200vw);";
-  }, 4000);
-  setTimeout(() => {
-    carouselMovingPart.style.cssText = "transform: translateX(0vw);";
-  }, 8000);
+function shiftFirstAndPush() {
+  let elementToManupulate = carouselMovingPart.firstElementChild;
+
+  // carouselMovingPart.classList.add("move");
+  carouselMovingPart.firstElementChild.remove();
+  carouselMovingPart.appendChild(elementToManupulate);
+
+  // return elementToManupulate;
 }
 
-toRepeatFunction(translateCarousel, 12000);
+function translateCarousel() {
+  // carouselMovingPart.style.cssText = "transform: translateX(-100vw);";
+  // setTimeout(() => {
+  //   shiftFirstAndPush();
+  // }, 1200);
+  // carouselMovingPart.style.cssText = "transform: translateX(0vw);";
+  // setTimeout(() => {
+  //   carouselMovingPart.classList.remove("move");
+  // }, 1500);
+  // setTimeout(() => {
+  //   carouselMovingPart.style.cssText = "transform: translateX(0vw);";
+  // }, 8000);
+}
+
+toRepeatFunction(shiftFirstAndPush, 5000);
