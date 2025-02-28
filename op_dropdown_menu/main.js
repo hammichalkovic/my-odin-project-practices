@@ -3,7 +3,10 @@ let navBody = document.querySelector(".nav_body"),
   navCloser = document.querySelector(".nav_close"),
   threeDotsMenu = document.querySelector(".threedots_menu"),
   threeDotsToggler = document.querySelector(".threedots_toggler"),
-  carouselMovingPart = document.querySelector(".carousel_moving");
+  carouselMovingPart = document.querySelector(".carousel_moving"),
+  carousel_arr = [0, 1, 2],
+  picDiv = document.querySelector(".pic"),
+  num = 0;
 
 function toToggle(clicked, transformed, cls) {
   clicked.addEventListener("click", () => {
@@ -21,15 +24,43 @@ function toRepeatFunction(func, inteval) {
   return setInterval(func, inteval);
 }
 
-function shiftFirstAndPush() {
-  let elementToManupulate = carouselMovingPart.firstElementChild;
-
-  // carouselMovingPart.classList.add("move");
-  carouselMovingPart.firstElementChild.remove();
-  carouselMovingPart.appendChild(elementToManupulate);
-
-  // return elementToManupulate;
+function chooseCarouselBd(num) {
+  switch (num) {
+    case 0:
+      picDiv.classList.remove("female", "store");
+      picDiv.classList.add("cake");
+      break;
+    case 1:
+      picDiv.classList.remove("cake", "store");
+      picDiv.classList.add("female");
+      break;
+    case 2:
+      picDiv.classList.remove("female", "cake");
+      picDiv.classList.add("store");
+      break;
+  }
 }
+
+function carouselAutoturn() {
+  if (num == 2) {
+    chooseCarouselBd(num);
+    num = 0;
+  } else {
+    chooseCarouselBd(num);
+    ++num;
+  }
+}
+
+// function shiftFirstAndPush() {
+// let elementToManupulate = carouselMovingPart.firstElementChild;
+
+// carouselMovingPart.classList.add("move");
+// carouselMovingPart.firstElementChild.remove();
+// carouselMovingPart.appendChild(elementToManupulate);
+
+// let;
+// return elementToManupulate;
+// }
 
 function translateCarousel() {
   // carouselMovingPart.style.cssText = "transform: translateX(-100vw);";
@@ -45,4 +76,4 @@ function translateCarousel() {
   // }, 8000);
 }
 
-toRepeatFunction(shiftFirstAndPush, 5000);
+toRepeatFunction(carouselAutoturn, 5000);
