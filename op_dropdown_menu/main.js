@@ -42,11 +42,20 @@ function chooseCarouselBd(num) {
   }
 }
 
+function toCheckPic(num) {
+  Array.from(picChecks).map(
+    (i) => (i.style.cssText = "background-color: white;")
+  );
+  picChecks[num].style.cssText = "background-color: pink;";
+}
+
 function carouselAutoturn() {
   if (num == 2) {
+    toCheckPic(num);
     chooseCarouselBd(num);
     num = 0;
   } else {
+    toCheckPic(num);
     chooseCarouselBd(num);
     ++num;
   }
@@ -77,16 +86,20 @@ function translateCarousel() {
   // }, 8000);
 }
 
+let carouselRepetition = toRepeatFunction(carouselAutoturn, 5000);
+
 picChecks.forEach((pic) => {
   pic.addEventListener("click", (e) => {
-    Array.from(picChecks).map(
-      (i) => (i.style.cssText = "background-color: white;")
-    );
+    clearInterval(carouselRepetition);
+
     console.log(Array.from(picChecks).indexOf(e.target));
-    picChecks[Array.from(picChecks).indexOf(e.target)].style.cssText =
-      "background-color: pink;";
+    toCheckPic(Array.from(picChecks).indexOf(e.target));
     chooseCarouselBd(Array.from(picChecks).indexOf(e.target));
+
+    setTimeout(() => {
+      carouselRepetition = toRepeatFunction(carouselAutoturn, 5000);
+    }, 5000);
   });
 });
 
-// toRepeatFunction(carouselAutoturn, 5000);
+// let carouselRepetition = toRepeatFunction(carouselAutoturn, 5000);
