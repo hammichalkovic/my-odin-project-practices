@@ -6,7 +6,8 @@ let navBody = document.querySelector(".nav_body"),
   carouselMovingPart = document.querySelector(".carousel_moving"),
   carousel_arr = [0, 1, 2],
   picDiv = document.querySelector(".pic"),
-  num = 0;
+  num = 0,
+  picChecks = document.querySelectorAll(".pic_check");
 
 function toToggle(clicked, transformed, cls) {
   clicked.addEventListener("click", () => {
@@ -76,4 +77,16 @@ function translateCarousel() {
   // }, 8000);
 }
 
-toRepeatFunction(carouselAutoturn, 5000);
+picChecks.forEach((pic) => {
+  pic.addEventListener("click", (e) => {
+    Array.from(picChecks).map(
+      (i) => (i.style.cssText = "background-color: white;")
+    );
+    console.log(Array.from(picChecks).indexOf(e.target));
+    picChecks[Array.from(picChecks).indexOf(e.target)].style.cssText =
+      "background-color: pink;";
+    chooseCarouselBd(Array.from(picChecks).indexOf(e.target));
+  });
+});
+
+// toRepeatFunction(carouselAutoturn, 5000);

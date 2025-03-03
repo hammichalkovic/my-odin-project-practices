@@ -198,6 +198,7 @@ h2 {
   box-shadow: -0.25rem 0 0 0 black, 0.25rem 0 0 0 black, 0 -0.25rem 0 0 black,
     0 0.25rem 0 0 black;
   background-color: white;
+  /* z-index: 10; */
 }
 
 #nav_open:hover {
@@ -221,6 +222,7 @@ h2 {
   width: 300vw;
   /* transform: translateX(0); */
   transition: transform 1s ease-in-out;
+  z-index: 1;
 }
 
 /* .move {
@@ -235,6 +237,8 @@ h2 {
   width: 100vw;
   height: 100%;
   transition: transform 1s ease-in-out;
+  display: flex;
+  justify-content: center;
 }
 
 .cake,
@@ -264,8 +268,25 @@ h2 {
 }
 
 .pic_checkboxes {
-  width: 30vw;
-  height: 6vw;
-  border: 4px solid red;
-  z-index: 100;
+  width: 15vw;
+  height: 5vw;
+  /* border: 4px solid red; */
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.pic_check {
+  border: 10px solid white;
+  background-color: white;
+  height: 3vh;
+  width: 3vh;
+  border-radius: 2rem;
+  /* z-index: 1; */
+}
+
+.pic_check:hover {
+  cursor: pointer;
 }
