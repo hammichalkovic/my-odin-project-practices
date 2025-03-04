@@ -8,7 +8,9 @@ let navBody = document.querySelector(".nav_body"),
   picDiv = document.querySelector(".pic"),
   num = 0,
   picChecks = document.querySelectorAll(".pic_check"),
-  carouselRepetition;
+  carouselRepetition,
+  leftArrow = document.querySelector(".left"),
+  rightArrow = document.querySelector(".right");
 
 function toToggle(clicked, transformed, cls) {
   clicked.addEventListener("click", () => {
@@ -53,6 +55,30 @@ function carouselAutoturn() {
     toCheckPic(num);
     chooseCarouselBd(num);
     ++num;
+  }
+}
+
+function carouselScrollLeft() {
+  --num;
+  if (num < 0) {
+    num = 2;
+    toCheckPic(num);
+    chooseCarouselBd(num);
+  } else {
+    toCheckPic(num);
+    chooseCarouselBd(num);
+  }
+}
+
+function carouselScrollRight() {
+  ++num;
+  if (num < 3) {
+    toCheckPic(num);
+    chooseCarouselBd(num);
+  } else {
+    num = 0;
+    toCheckPic(num);
+    chooseCarouselBd(num);
   }
 }
 
@@ -101,6 +127,26 @@ picChecks.forEach((pic) => {
     // clearInterval(carouselRepetition);
     setTimeout(toRepeatFunction, 5000);
   });
+});
+
+leftArrow.addEventListener("click", () => {
+  clearInterval(carouselRepetition);
+  carouselRepetition = undefined;
+  carouselScrollLeft(num);
+  toCheckPic(num);
+  chooseCarouselBd(num);
+
+  setTimeout(toRepeatFunction, 5000);
+});
+
+rightArrow.addEventListener("click", () => {
+  clearInterval(carouselRepetition);
+  carouselRepetition = undefined;
+  carouselScrollRight(num);
+  toCheckPic(num);
+  chooseCarouselBd(num);
+
+  setTimeout(toRepeatFunction, 5000);
 });
 
 // let carouselRepetition = toRepeatFunction(carouselAutoturn, 5000);
