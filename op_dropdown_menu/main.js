@@ -7,7 +7,8 @@ let navBody = document.querySelector(".nav_body"),
   carousel_arr = [0, 1, 2],
   picDiv = document.querySelector(".pic"),
   num = 0,
-  picChecks = document.querySelectorAll(".pic_check");
+  picChecks = document.querySelectorAll(".pic_check"),
+  carouselRepetition;
 
 function toToggle(clicked, transformed, cls) {
   clicked.addEventListener("click", () => {
@@ -18,12 +19,6 @@ function toToggle(clicked, transformed, cls) {
 toToggle(navOpener, navBody, "hidden_nav");
 toToggle(navCloser, navBody, "hidden_nav");
 toToggle(threeDotsToggler, threeDotsMenu, "hidden_threedots");
-
-function toRepeatFunction(func, inteval) {
-  func();
-
-  return setInterval(func, inteval);
-}
 
 function chooseCarouselBd(num) {
   switch (num) {
@@ -61,6 +56,13 @@ function carouselAutoturn() {
   }
 }
 
+function toRepeatFunction() {
+  // carouselAutoturn();
+  clearInterval(carouselRepetition);
+
+  carouselRepetition = setInterval(carouselAutoturn, 5000);
+}
+
 // function shiftFirstAndPush() {
 // let elementToManupulate = carouselMovingPart.firstElementChild;
 
@@ -85,20 +87,19 @@ function translateCarousel() {
   //   carouselMovingPart.style.cssText = "transform: translateX(0vw);";
   // }, 8000);
 }
-
-let carouselRepetition = toRepeatFunction(carouselAutoturn, 5000);
+carouselAutoturn();
+toRepeatFunction();
 
 picChecks.forEach((pic) => {
   pic.addEventListener("click", (e) => {
     clearInterval(carouselRepetition);
+    carouselRepetition = undefined;
 
     console.log(Array.from(picChecks).indexOf(e.target));
     toCheckPic(Array.from(picChecks).indexOf(e.target));
     chooseCarouselBd(Array.from(picChecks).indexOf(e.target));
-
-    setTimeout(() => {
-      carouselRepetition = toRepeatFunction(carouselAutoturn, 5000);
-    }, 5000);
+    // clearInterval(carouselRepetition);
+    setTimeout(toRepeatFunction, 5000);
   });
 });
 
